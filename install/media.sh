@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-brew install spotify
-brew install vlc
+brew cask install spotify
+brew cask install vlc

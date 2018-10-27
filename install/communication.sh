@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-brew install skype
-brew install slack
+brew cask install skype
+brew cask install slack

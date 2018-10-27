@@ -3,6 +3,7 @@
 brew install wget
 brew install jq
 
+brew cask install iterm2
 brew install git
 
 git config --global alias.addi add --interactive

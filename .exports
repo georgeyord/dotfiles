@@ -32,3 +32,20 @@ export MANPAGER='less -X';
 # Avoid issues with `gpg` as installed via Homebrew.
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
+
+##################################
+######## USER PREFERENCES ########
+################################$$
+
+# Used in ./.macos
+COMPUTER_NAME="centaur-mac"
+WALLPAPER_IMAGE="/Users/user/Dropbox/backgrounds/927332-grain-wallpaper-for-meizu.jpg"
+
+# Used in ./setup/directories/ssh.sh
+export SSH_KEYS_PATH="/Users/user/Dropbox/Dev/Private/ssh_keys/aio/"
+
+# Used in ./setup/directories/ssh.sh
+export SSH_KEYS_PATH="/Users/user/Dropbox/Dev/Private/ssh_keys/aio/"
+
+# Used in ./setup/apps/07-docker.sh
+export DOCKER_MOUNTABLE_HOST_FOLDER="/opt/codebase"

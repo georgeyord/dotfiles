@@ -169,3 +169,13 @@ function o() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+function instruct() {
+    echo -e "*** ${1}"
+    read -n 1 -s -r -p "Press any key to continue"
+}
+
+function appIsRunning() {
+    ps aux | grep "${1}" > /dev/null
+	return $?
+}

@@ -1,10 +1,26 @@
 #!/usr/bin/env bash
+set -e
+
+cd "$(dirname "${BASH_SOURCE}")";
+
+source ../../.exports
+source ../../.functions
+
+set -x
 
 brew install wget
 brew install jq
 
+brew cask install caffeine
+
 brew cask install iterm2
+
+hash zsh || sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+brew cask install java
 brew install git
+
+set +x
 
 git config --global alias.addi add --interactive
 git config --global alias.br branch
@@ -28,3 +44,29 @@ git config --global color.diff auto
 git config --global color.status auto
 git config --global core.autocrlf input
 #git config --global push.default simple
+
+set -x
+
+# Install NodeJS
+# brew install nvm
+
+# Install Python
+brew install python
+brew install python3
+
+# Install ruby-build and rbenv
+# brew install ruby-build
+# brew install rbenv
+# LINE='eval "$(rbenv init -)"'
+# grep -q "$LINE" ~/.extra || echo "$LINE" >> ~/.extra
+
+# Install Heroku
+# brew install heroku-toolbelt
+# heroku update
+
+brew install ansible
+
+# Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+
+set +x

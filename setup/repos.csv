@@ -1,0 +1,7 @@
+/opt/codebase/georgeyord/scripts,git@github.com:georgeyord/scripts.git
+/opt/codebase/georgeyord/dotfiles,git@github.com:georgeyord/dotfiles.git
+/opt/codebase/georgeyord/presentations,git@github.com:georgeyord/presentations.git
+/opt/codebase/georgeyord/mathiasdotfiles,git@github.com:georgeyord/mathiasdotfiles.git
+/opt/codebase/centaur/centaur-tech,git@gitlab.com:Centech/centaur-tech.git
+/opt/codebase/centaur/centaur-tech-fog-agent,git@gitlab.com:Centech/centaur-tech-fog-agent.git
+/opt/codebase/centaur/devops,git@gitlab.com:Centech/devops.git

@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
 set -e
 
-mkdir -p .ssh
-cd .ssh
+cd "$(dirname "${BASH_SOURCE}")";
 
-cp ~/Dropbox/Dev/Private/ssh_keys/aio/id_rsa* .
-chmod 400 id_rsa*
+source ../../.exports
 
-ln -s ~/Dropbox/Dev/Private/ssh_keys/aio/config .
+if [ -d "${SSH_KEYS_PATH}" ]; then
+  mkdir -p ~/.ssh
+  cd ~/.ssh
+
+  cp -n "${SSH_KEYS_PATH}"id_rsa* .
+  chmod 400 id_rsa*
+
+  ln -sf "${SSH_KEYS_PATH}"config .
+elif [ -z "${SSH_KEYS_PATH}" ]; then
+  echo "Env variable SSH_KEYS_PATH not set, ssh keys setup will not be performed"
+  read -n 1 -s -r -p "Press any key to continue"
+else
+  echo "Ssh keys path '${SSH_KEYS_PATH}' not found"
+  read -n 1 -s -r -p "Press any key to continue"
+fi

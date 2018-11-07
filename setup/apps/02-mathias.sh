@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
+set -e
 
-# Install command-line tools using Homebrew.
+cd "$(dirname "${BASH_SOURCE}")";
 
-# Upgrade any already-installed formulae.
-brew upgrade
+source ../../.exports
+source ../../.functions
 
 # Save Homebrew’s installed location.
 BREW_PREFIX=$(brew --prefix)
+
+set -x
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -94,3 +97,5 @@ brew install tree
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+set +x

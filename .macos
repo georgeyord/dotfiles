@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-COMPUTER_NAME="centaur-mac"
-WALLPAPER_IMAGE="/Users/user/Dropbox/backgrounds/927332-grain-wallpaper-for-meizu.jpg"
+cd "$(dirname "${BASH_SOURCE}")";
+
+source ./.exports
 
 # ~/.macos — https://mths.be/macos
 
@@ -99,6 +100,18 @@ defaults write com.apple.helpviewer DevMode -bool true
 # in the login window
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
+# Show input sources menu
+sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool TRUE
+
+# Set input sources change keyboard shortcau to alt+cmd+space
+sudo defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys 60 value parameters -array 32 49 1572864
+
+# Add inout source: greek
+defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add '{InputSourceKind="Keyboard Layout"; "KeyboardLayout Name"="Greek"; "KeyboardLayout ID"=-18944;}'
+
+# Stop automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
 
@@ -129,6 +142,9 @@ rm -rf ~/Library/Application Support/Dock/desktoppicture.db
 sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
 sudo ln -s "${WALLPAPER_IMAGE}" /System/Library/CoreServices/DefaultDesktop.jpg
 
+# Re-enable Gatekeeper setting to open apps from anywhere
+sudo spctl --master-disable
+
 ###############################################################################
 # SSD-specific tweaks                                                         #
 ###############################################################################
@@ -148,9 +164,9 @@ sudo chflags uchg /private/var/vm/sleepimage
 ###############################################################################
 
 # Trackpad: enable tap to click for this user and for the login screen
-# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-# defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-# defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Trackpad: map bottom right corner to right-click
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2

@@ -28,7 +28,7 @@ brew install findutils
 # Install alfred
 brew cask install alfred
 
-if [ ! appIsRunning "Alfred" ]; then
+if [ ! is-running "Alfred" ]; then
   
 instruct "Manually setup Alfred
   

@@ -25,10 +25,10 @@ brew install cask
 
 # Install dropbox
 brew cask install dropbox
-appIsRunning "Dropbox" || instruct "Manually log-in to Dropbox"
+is-running "Dropbox" || instruct "Manually log-in to Dropbox"
 
 # Install Google chrome
 brew cask install google-chrome
-appIsRunning "Dropbox" || instruct "Manually log-in to Chrome"
+is-running "Dropbox" || instruct "Manually log-in to Chrome"
 
 set +x

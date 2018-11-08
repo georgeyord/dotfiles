@@ -175,8 +175,9 @@ function instruct() {
     read -n 1 -s -r -p "Press any key to continue"
 }
 
-function appIsRunning() {
-    ps aux | grep "${1}" > /dev/null
+function is-running() {
+	COUNT="$(ps aux | grep "${1}" | wc -l)"
+	test "${COUNT}" -ne "1"
 	return $?
 }
 

@@ -22,11 +22,11 @@ defaults write com.mowglii.ItsycalApp ShowMonthInIcon -bool true
 defaults write com.mowglii.ItsycalApp UseOutlineIcon -bool true
 defaults write com.mowglii.ItsycalApp WeekStartDOW -bool true
 
-# brew cask install iterm2
+brew install findutils
 # brew cask install java
 
 # Install alfred
-# brew cask install alfred
+brew cask install alfred
 
 if [ ! appIsRunning "Alfred" ]; then
   

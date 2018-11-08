@@ -49,3 +49,6 @@ export SSH_KEYS_PATH="/Users/user/Dropbox/Dev/Private/ssh_keys/aio/"
 
 # Used in ./setup/apps/07-docker.sh
 export DOCKER_MOUNTABLE_HOST_FOLDER="/opt/codebase"
+
+# Used in backup-plists function
+export PLISTS_BACKUP_PATH="/opt/codebase/georgeyord/mathiasdotfiles/plists"

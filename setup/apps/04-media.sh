@@ -8,4 +8,6 @@ brew cask install vlc
 
 brew cask install gimp
 
+brew install youtube-dl
+
 set +x

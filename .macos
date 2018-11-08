@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE}")";
-
 source ./.exports
 
 # ~/.macos — https://mths.be/macos
+set -x
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -138,9 +138,11 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
 # all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
-rm -rf ~/Library/Application Support/Dock/desktoppicture.db
-sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
-sudo ln -s "${WALLPAPER_IMAGE}" /System/Library/CoreServices/DefaultDesktop.jpg
+# if [ -n "${WALLPAPER_IMAGE}" ]; then
+# 	rm -rf ~/Library/Application Support/Dock/desktoppicture.db
+# 	sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
+# 	sudo ln -s "${WALLPAPER_IMAGE}" /System/Library/CoreServices/DefaultDesktop.jpg
+# fi
 
 # Re-enable Gatekeeper setting to open apps from anywhere
 sudo spctl --master-disable
@@ -153,11 +155,11 @@ sudo spctl --master-disable
 sudo pmset -a hibernatemode 0
 
 # Remove the sleep image file to save disk space
-sudo rm /private/var/vm/sleepimage
+# sudo rm /private/var/vm/sleepimage
 # Create a zero-byte file instead…
-sudo touch /private/var/vm/sleepimage
+# sudo touch /private/var/vm/sleepimage
 # …and make sure it can’t be rewritten
-sudo chflags uchg /private/var/vm/sleepimage
+# sudo chflags uchg /private/var/vm/sleepimage
 
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
@@ -575,7 +577,7 @@ sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (
 # Disable Spotlight indexing for any volume that gets mounted and has not yet
 # been indexed before.
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
-sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+# sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 # Change indexing order and disable some search results
 # Yosemite-specific search results (remove them if you are using macOS 10.9 or older):
 # 	MENU_DEFINITION
@@ -694,7 +696,7 @@ open "${HOME}/init/Solarized Dark.itermcolors"
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Disable local Time Machine backups
-hash tmutil &> /dev/null && sudo tmutil disablelocal
+# hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 ###############################################################################
 # Activity Monitor                                                            #

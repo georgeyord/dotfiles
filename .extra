@@ -9,3 +9,12 @@ git config --global user.name "$GIT_AUTHOR_NAME"
 GIT_AUTHOR_EMAIL="george.yord@gmail.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
+
+mkdir -p ~/.ssh
+cp -n ~/Dropbox/Dev/Private/ssh_keys/centaur-devops/id_rsa ~/.ssh/devops.pem
+chmod 400 ~/.ssh/devops.pem
+
+# Used in `kops` cli command
+export KOPS_STATE_STORE="s3://state.kops.store.centaur"
+
+export KUBECONFIG="~/.kube/config:${HOME}/Dropbox/Work/Centaur/credentials/kube/config"

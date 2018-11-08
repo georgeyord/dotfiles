@@ -179,3 +179,44 @@ function appIsRunning() {
     ps aux | grep "${1}" > /dev/null
 	return $?
 }
+
+function kube-dashboard() {
+	clear && \
+	export KOPS_STATE_STORE=s3://state.kops.store.centaur && \
+	echo "Admin password: $(kops get secrets admin --type secret -oplaintext)" | grep password && \
+	echo -e '\nKubernetes dashboard: http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/service?namespace=_all' & \
+	kubectl proxy > /dev/null
+}
+
+function weather-at() {
+	clear
+
+	CMD="ansiweather"
+	if [ -n "${1}" ]; then
+		CMD="${CMD} -l ${1}"
+	fi
+	if [ -n "${2}" ]; then
+		CMD="${CMD} -f ${2}"
+	fi
+
+	eval "${CMD}"
+}
+
+function backup-plists() {
+	if [ -n "${PLISTS_BACKUP_PATH}" ]; then
+		TARGET_DIR="${PLISTS_BACKUP_PATH}"
+	elif [ -n "${1}" ]; then
+		TARGET_DIR="${1}"
+	else
+		echo "Directory target is missing as first argument, exiting..."
+		return 1
+	fi
+
+	mkdir -p "${TARGET_DIR}"
+	# rm -f "${TARGET_DIR}"/./*
+	for FILE in /Users/user/Library/Preferences/*.plist ; do
+		BASENAME="$(basename ${FILE})"
+		echo "Reading ${BASENAME}..."
+		defaults read ${FILE} > "${TARGET_DIR}/${BASENAME}"
+	done
+}

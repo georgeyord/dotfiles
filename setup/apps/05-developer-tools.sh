@@ -8,17 +8,21 @@ source ../../.functions
 
 set -x
 
-brew install wget
-brew install jq
-
-brew cask install caffeine
-
-brew cask install iterm2
-
-hash zsh || sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 brew cask install java
-brew install git
+hash wget 2> /dev/null || brew install wget
+hash jq 2> /dev/null || brew install jq
+hash caffeine 2> /dev/null || brew cask install caffeine
+hash iterm2 2> /dev/null || brew cask install iterm2
+hash zsh 2> /dev/null || sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+has timeular || (
+    curl https://timeular-desktop-packages.s3.amazonaws.com/mac/production/Timeular.dmg -o /tmp/Timeular.dmg && \
+    open /tmp/Timeular.dmg
+)
+
+hash timeular 2> /dev/null || brew cask install postman
+
+hash git 2> /dev/null || brew install git
 
 set +x
 

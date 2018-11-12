@@ -10,6 +10,7 @@ set -x
 
 # Core casks
 brew cask install flycut
+brew cask install growl-fork
 defaults write com.generalarcade.flycut loadOnStartup -bool true
 
 brew cask install itsycal

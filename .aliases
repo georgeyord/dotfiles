@@ -155,3 +155,14 @@ alias path='echo -e ${PATH//:/\\n}'
 alias youtube-to-mp3='youtube-dl -x --audio-format=mp3'
 
 alias weather='ansiweather'
+
+alias g='git'
+alias gt='git'
+alias gti='git'
+
+alias gs='git st'
+alias gc='git commit -am'
+alias gd='git diff'
+alias gdc='git diff --cached'
+
+alias cl='clear'

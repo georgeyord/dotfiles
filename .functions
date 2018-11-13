@@ -221,3 +221,7 @@ function backup-plists() {
 		defaults read ${FILE} > "${TARGET_DIR}/${BASENAME}"
 	done
 }
+
+# function clr() {
+# 	$@ | ccze
+# }

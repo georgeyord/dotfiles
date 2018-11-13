@@ -147,6 +147,11 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Re-enable Gatekeeper setting to open apps from anywhere
 sudo spctl --master-disable
 
+# Setup clock to show second using a digital clock
+defaults write com.apple.menuextra.clock DateFormat -string "HH:mm:ss"
+defaults write com.apple.menuextra.clock FlashDateSeparators -bool false
+defaults write com.apple.menuextra.clock IsAnalog -bool false
+
 ###############################################################################
 # SSD-specific tweaks                                                         #
 ###############################################################################

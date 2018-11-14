@@ -171,3 +171,5 @@ alias gpatch='git commit --amend --no-edit'
 alias gs='git st'
 
 alias cl='clear'
+
+alias reload-zshrc='source ~/.zshrc'

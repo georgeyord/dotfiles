@@ -13,6 +13,7 @@ hash wget 2> /dev/null || brew install wget
 hash jq 2> /dev/null || brew install jq
 hash caffeine 2> /dev/null || brew cask install caffeine
 hash iterm2 2> /dev/null || brew cask install iterm2
+hash imgcat 2> /dev/null || curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
 hash ccze 2> /dev/null || brew install ccze
 hash watch 2> /dev/null || brew install watch
 hash zsh 2> /dev/null || sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

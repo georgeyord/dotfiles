@@ -22,3 +22,10 @@ instruct "Add Greek as input source
 --> +
 --> Greek
 "
+
+instruct "Install iMovie
+
+--> open https://itunes.apple.com/gr/app/imovie/id408981434
+--> Download
+--> Install
+"

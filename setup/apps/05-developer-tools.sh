@@ -14,6 +14,7 @@ hash jq 2> /dev/null || brew install jq
 hash caffeine 2> /dev/null || brew cask install caffeine
 hash iterm2 2> /dev/null || brew cask install iterm2
 hash ccze 2> /dev/null || brew install ccze
+hash watch 2> /dev/null || brew install watch
 hash zsh 2> /dev/null || sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 has timeular || (

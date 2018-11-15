@@ -5,3 +5,4 @@
 /opt/codebase/centaur/centaur-tech,git@gitlab.com:Centech/centaur-tech.git
 /opt/codebase/centaur/centaur-tech-fog-agent,git@gitlab.com:Centech/centaur-tech-fog-agent.git
 /opt/codebase/centaur/devops,git@gitlab.com:Centech/devops.git
+/opt/codebase/others/zsh-git-prompt,https://github.com/olivierverdier/zsh-git-prompt

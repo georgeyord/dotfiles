@@ -18,3 +18,7 @@ chmod 400 ~/.ssh/devops.pem
 export KOPS_STATE_STORE="s3://state.kops.store.centaur"
 
 export KUBECONFIG="~/.kube/config:${HOME}/Dropbox/Work/Centaur/credentials/kube/config"
+
+export WALLPAPER="/Users/user/Dropbox/backgrounds/927393-amazing-grain-wallpaper-2880x1800-ipad-pro.jpg"
+export WALLPAPER_1="/Users/user/Dropbox/backgrounds/1151480-gorgerous-fields-wallpaper-1920x1200-for-android-50.jpg"
+export WALLPAPER_2="/Users/user/Dropbox/backgrounds/1151409-fields-wallpaper-2560x1600-for-phones.jpg"

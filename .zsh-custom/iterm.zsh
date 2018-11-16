@@ -46,7 +46,7 @@ git_status_for_touchbar() {
   if [ -n "$__CURRENT_GIT_STATUS" ]; then
     DELIMETER=" "
     STATUS="$GIT_BRANCH"
-    
+
     if [ "$GIT_BEHIND" -ne "0" ]; then
       STATUS="$STATUS$DELIMETER↓$GIT_BEHIND"
     fi
@@ -72,21 +72,49 @@ git_status_for_touchbar() {
   fi
 }
 
-function setGitStatusInTouchbar() {
-    ~/.iterm2/it2setkeylabel set status "$(git_status_for_touchbar)"
+function setDynamicFnLabels() {
+  ~/.iterm2/it2setkeylabel set F1 "${1:-F1}"
+  ~/.iterm2/it2setkeylabel set F2 "${2:-F2}"
+  ~/.iterm2/it2setkeylabel set F3 "${3:-F3}"
+  ~/.iterm2/it2setkeylabel set F4 "${4:-F4}"
+  ~/.iterm2/it2setkeylabel set F5 "${5:-F5}"
+  ~/.iterm2/it2setkeylabel set F6 "${6:-F6}"
+  ~/.iterm2/it2setkeylabel set F7 "${7:-F7}"
+  ~/.iterm2/it2setkeylabel set F8 "${7:-F8}"
+  ~/.iterm2/it2setkeylabel set F9 "${7:-F9}"
+  ~/.iterm2/it2setkeylabel set F10 "${7:-F10}"
+  ~/.iterm2/it2setkeylabel set F11 "${7:-F11}"
+  ~/.iterm2/it2setkeylabel set F12 "${7:-F12}"
+  ~/.iterm2/it2setkeylabel set F13 "${7:-F13}"
+  ~/.iterm2/it2setkeylabel set F14 "${7:-F14}"
+  ~/.iterm2/it2setkeylabel set F15 "${7:-F15}"
+  ~/.iterm2/it2setkeylabel set F16 "${7:-F16}"
+  ~/.iterm2/it2setkeylabel set F17 "${7:-F17}"
+}
+
+function setTouchbarStatus() {
+    ~/.iterm2/it2setkeylabel set status "${1}"
 }
 
 function setFnLabels() {
     env | grep BYOBU > /dev/null
     IS_BYOBU_ENABLED=$?
 
-    if [ "${IS_BYOBU_ENABLED}" -eq 0 ]; then
-        ~/.iterm2/it2setkeylabel pop "byobu"
-    else
-        ~/.iterm2/it2setkeylabel pop "default"
-    fi
+    CURRENT_TIMESTAMP="$(date -u +'%H:%M:%S')"
+    CURRENT_DIRECTORY="${PWD##*/}"
+    GIT_STATUS="${1}"
+    setDynamicFnLabels "${CURRENT_TIMESTAMP}" "${CURRENT_DIRECTORY}" "${GIT_STATUS}"
+
+    # if [ "${IS_BYOBU_ENABLED}" -eq 0 ]; then
+    #     ~/.iterm2/it2setkeylabel pop "byobu"
+    # else
+    #     ~/.iterm2/it2setkeylabel pop "default"
+    # fi
 }
 
 function modifyTouchbar() {
-    setGitStatusInTouchbar
+    GIT_STATUS="$(git_status_for_touchbar)"
+
+    setTouchbarStatus "${GIT_STATUS}"
+    setFnLabels "${GIT_STATUS}"
 }

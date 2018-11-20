@@ -222,6 +222,15 @@ function backup-plists() {
 	done
 }
 
+function download-and-install() {
+	TEMP_TARGET="/tmp/$(date +'%s')"
+	mkdir -p "${TEMP_TARGET}"
+	cd "${TEMP_TARGET}"
+	# echo "Files will be saved in $(pwd)..."
+	curl -O "${1}"
+  open ./*
+  instruct "Finalize the installation manually..."
+}
 # function clr() {
 # 	$@ | ccze
 # }

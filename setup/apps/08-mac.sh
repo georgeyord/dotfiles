@@ -13,6 +13,7 @@ brew cask install flycut
 defaults write com.generalarcade.flycut loadOnStartup -bool true
 brew cask install growl-fork
 brew install aerial
+brew cask install touchswitcher
 
 hash wallpaper 2> /dev/null || brew install wallpaper
 ../setup_wallpapers.sh

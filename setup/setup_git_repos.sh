@@ -18,7 +18,7 @@ if [ -f ./repos.csv ]; then
         echo "Git repo '${REPO_URL}' already exists in '${REPO_PATH}', moving on..."
       fi
     fi
-  done < $(cat ./repos.csv | grep centaur)
+  done < ./repos.csv
 else
   echo "CSV file './repos.csv' not found, repos cloning will not be performed"
   read -n 1 -s -r -p "Press any key to continue"

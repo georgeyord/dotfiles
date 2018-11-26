@@ -8,6 +8,8 @@ source ../../.functions
 
 set -x
 
+hash git 2> /dev/null || brew install git
+
 brew cask install java
 hash wget 2> /dev/null || brew install wget
 hash jq 2> /dev/null || brew install jq
@@ -17,15 +19,10 @@ hash imgcat 2> /dev/null || curl -L https://iterm2.com/shell_integration/install
 hash ccze 2> /dev/null || brew install ccze
 hash watch 2> /dev/null || brew install watch
 hash zsh 2> /dev/null || sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+hash envsubst 2> /dev/null || ( brew install gettext && brew link --force gettext)
 
-has timeular || (
-    curl https://timeular-desktop-packages.s3.amazonaws.com/mac/production/Timeular.dmg -o /tmp/Timeular.dmg && \
-    open /tmp/Timeular.dmg
-)
-
-hash timeular 2> /dev/null || brew cask install postman
-
-hash git 2> /dev/null || brew install git
+hash timeular 2> /dev/null || download-and-install https://timeular-desktop-packages.s3.amazonaws.com/mac/production/Timeular.dmg
+hash postman 2> /dev/null || brew cask install postman
 
 set +x
 

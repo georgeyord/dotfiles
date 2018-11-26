@@ -13,7 +13,13 @@ brew cask install flycut
 defaults write com.generalarcade.flycut loadOnStartup -bool true
 brew cask install growl-fork
 brew install aerial
-brew cask install touchswitcher
+# Obsolete, now using bettertouchtool
+# brew cask install touchswitcher
+brew cask install bettertouchtool
+brew cask install numi
+brew cask install KeyboardCleanTool
+#http://hasseg.org/icalBuddy/examples.html
+hash icalBuddy 2> /dev/null || brew cask install icalBuddy
 
 hash wallpaper 2> /dev/null || brew install wallpaper
 ../setup_wallpapers.sh

@@ -223,6 +223,6 @@ function download-and-install() {
   open ./*
   instruct "Finalize the installation manually..."
 }
-# function clr() {
-# 	$@ | ccze
-# }
+function clr() {
+	$@ | ccze
+}

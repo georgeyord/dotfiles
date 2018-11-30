@@ -175,3 +175,9 @@ alias cl='clear'
 alias reload-zshrc='source ~/.zshrc'
 
 alias timestamp='date +%s'
+
+alias kb-events='kubectl get events --watch --sort-by=.metadata.creationTimestamp'
+alias kb-dashboard='kubectl proxy > /dev/null'
+alias kb-tail='kubetail --since 1m --timestamps --colored-output'
+alias kb-run-temp='kubectl run --rm -i --tty --restart=Never temp'
+alias kb-run-curl='kubectl run --rm -i --tty --restart=Never temp --image=byrnedo/alpine-curl '

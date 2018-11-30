@@ -24,5 +24,6 @@ hash aws || ( \
 )
 
 # brew cask install minikube
+hash kubetail || brew tap johanhaleby/kubetail && brew install kubetail
 
 set +x

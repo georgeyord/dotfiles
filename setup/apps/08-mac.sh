@@ -12,6 +12,7 @@ set -x
 brew cask install flycut
 defaults write com.generalarcade.flycut loadOnStartup -bool true
 brew cask install growl-fork
+brew install terminal-notifier
 brew install aerial
 # Obsolete, now using bettertouchtool
 # brew cask install touchswitcher
@@ -20,6 +21,16 @@ brew cask install numi
 brew cask install KeyboardCleanTool
 #http://hasseg.org/icalBuddy/examples.html
 hash icalBuddy 2> /dev/null || brew cask install icalBuddy
+
+# Read more: https://github.com/ng-vu/tomato
+if [ ! hash tomato 2> /dev/null ]; then
+  instruct "Manually install Tomato for BTT
+
+--> Download https://github.com/ng-vu/tomato/blob/master/others/tomato?raw=true
+--> make it executable
+--> move it to /usr/local/bin
+"
+fi
 
 hash wallpaper 2> /dev/null || brew install wallpaper
 ../setup_wallpapers.sh
@@ -56,7 +67,9 @@ Setup Alfred:
 "
 fi
 
-# brew cask install xquartz
+# For X11Requirement
+brew cask install xquartz
+brew install rdesktop
 
 # Install Grid clock wallpaper
 curl https://github.com/chrstphrknwtn/grid-clock/releases/download/0.0.4/Grid.Clock.0.0.4.saver.zip -o /tmp/Grid.Clock.0.0.4.saver.zip

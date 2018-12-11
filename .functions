@@ -214,15 +214,49 @@ function backup-plists() {
 	done
 }
 
-function download-and-install() {
+function run-once-in-background() {
+	CHECK="$(basename ${1})"
+	# echo "Checking for ${CHECK}"
+	pgrep "${CHECK}" 2>&1 > /dev/null
+	if [ $? -eq 0 ]; then
+		# echo "Command ${CHECK} is running"
+	else
+		echo "Inititating command in the background: ${@}"
+		# sudo mkdir -p "/var/log/background" && sudo chmod -R 777 "/var/log/background/"
+		# ( ${@} 2>&1 "/var/log/background/${CHECK}.log" ) &
+		${@} &
+	fi
+}
+
+function download-to-tmp() {
 	TEMP_TARGET="/tmp/$(date +'%s')"
 	mkdir -p "${TEMP_TARGET}"
 	cd "${TEMP_TARGET}"
 	# echo "Files will be saved in $(pwd)..."
-	curl -L -J -O "${1}"
-  open ./*
+	curl -L -J -O "${1}" || exit 1
+  TEMP_FILE="$(ls | head -n 1)"
+  echo "${TEMP_TARGET}/${TEMP_FILE}"
+}
+
+function download-and-add-to-path() {
+	TEMP_FILE="$(download-to-tmp)"
+	chmod +x "${TEMP_FILE}"
+  sudo mv "${TEMP_FILE}" /usr/local/binary
+	BASENAME="$(basename ${FILE})"
+	if [ which "${BASENAME}" 2>&1 > /dev/null ]; then
+		echo "'${BASENAME}' was added successfully to path"
+	else
+		echo "Adding '${BASENAME}' to path failed..."
+		exit 1
+	fi
+}
+
+function download-and-open() {
+	TEMP_FILE="$(download-to-tmp)"
+  open "${TEMP_FILE}"
   instruct "Finalize the installation manually..."
 }
+
 function clr() {
 	$@ | ccze
 }

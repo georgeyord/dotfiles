@@ -218,13 +218,13 @@ function run-once-in-background() {
 	CHECK="$(basename ${1})"
 	# echo "Checking for ${CHECK}"
 	pgrep "${CHECK}" 2>&1 > /dev/null
-	if [ $? -eq 0 ]; then
-		# echo "Command ${CHECK} is running"
-	# else
+	if [ $? -eq 1 ]; then
 		echo "Inititating command in the background: ${@}"
 		# sudo mkdir -p "/var/log/background" && sudo chmod -R 777 "/var/log/background/"
-		# ( ${@} 2>&1 "/var/log/background/${CHECK}.log" ) &
-		${@} &
+		${@} > "/var/log/background/${CHECK}.log" 2>&1 &
+		# ${@} &
+	# else
+	# 	echo "Command ${CHECK} is running"
 	fi
 }
 

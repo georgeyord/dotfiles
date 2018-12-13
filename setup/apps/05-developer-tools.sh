@@ -23,6 +23,7 @@ hash envsubst 2> /dev/null || ( brew install gettext && brew link --force gettex
 
 hash timeular 2> /dev/null || download-and-open https://timeular-desktop-packages.s3.amazonaws.com/mac/production/Timeular.dmg
 hash postman 2> /dev/null || brew cask install postman
+hash meld 2> /dev/null || brew cask install meld
 brew info openvpn || ( brew install openvpn && sudo brew services start openvpn )
 
 set +x

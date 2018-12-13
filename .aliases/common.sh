@@ -1,20 +1,5 @@
 #!/usr/bin/env bash
 
-# Easier navigation: .., ..., ...., ....., ~ and -
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
-alias -- -="cd -"
-
-# Shortcuts
-alias d="cd ~/Documents/Dropbox"
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
-alias g="git"
-
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -23,6 +8,8 @@ else # macOS `ls`
 	colorflag="-G"
 	export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
 fi
+
+alias c='clear'
 
 alias ll="ls -lsa ${colorflag}"
 
@@ -47,46 +34,8 @@ alias egrep='egrep --color=auto'
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-# Get week number
-alias week='date +%V'
-
-# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
-
-# Google Chrome
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
-alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
-
-# IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
-# Show active network interfaces
-alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
-
-# Flush Directory Service cache
-alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
-
-# Clean up LaunchServices to remove duplicates in the “Open With” menu
-alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
-
-# Canonical hex dump; some systems have this symlinked
-command -v hd > /dev/null || alias hd="hexdump -C"
-
-# macOS has no `md5sum`, so use `md5` as a fallback
-command -v md5sum > /dev/null || alias md5sum="md5"
-
-# macOS has no `sha1sum`, so use `shasum` as a fallback
-command -v sha1sum > /dev/null || alias sha1sum="shasum"
-
-# JavaScriptCore REPL
-jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
-[ -e "${jscbin}" ] && alias jsc="${jscbin}";
-unset jscbin;
-
 # Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
+alias copy="tr -d '\n' | pbcopy"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
@@ -147,43 +96,9 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # Reload the shell (i.e. invoke as a login shell)
-# alias reload="exec ${SHELL} -l"
+alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-alias youtube-to-mp3='youtube-dl -x --audio-format=mp3'
-
-alias weather='ansiweather'
-
-alias ssh-tunnel-homeserver-1179='ssh -v -NL 1179:localhost:1179 parthenon.hopto.org'
-alias ssh-tunnel-homeserver-5555='ssh -v -NL 5555:localhost:5555 parthenon.hopto.org'
-alias ssh-tunnel-homeserver-rdp='ssh -v -NL 3389:localhost:3389 parthenon.hopto.org'
-alias ssh-tunnel-homeserver-vnc='ssh -v -NL 5900:localhost:5900 parthenon.hopto.orgñ'
-
-alias c='clear'
-alias g='git'
-alias gt='git'
-alias gti='git'
-
-alias ga='git add'
-alias gc='git commit -am'
-alias gd='git diff'
-alias gdc='git diff --cached'
-alias gl='git log'
-alias glb='git lb'
-alias gp='git push'
-alias gpatch='git commit --amend --no-edit'
-alias gs='git st'
-
-alias cl='clear'
-
 alias reload-zshrc='source ~/.zshrc'
-
-alias timestamp='date +%s'
-
-alias kb-events='kubectl get events --watch --sort-by=.metadata.creationTimestamp'
-alias kb-dashboard='kubectl proxy > /dev/null'
-alias kb-tail='kubetail --since 1m --timestamps --colored-output'
-alias kb-run-temp='kubectl run --rm -i --tty --restart=Never temp'
-alias kb-run-curl='kubectl run --rm -i --tty --restart=Never temp --image=byrnedo/alpine-curl '

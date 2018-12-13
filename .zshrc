@@ -102,4 +102,10 @@ for file in ~/.{path,exports,aliases,functions,extra}; do
 done;
 unset file;
 
+# Load the shell aliases:
+for file in ~/.aliases/*; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

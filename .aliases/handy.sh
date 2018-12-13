@@ -33,3 +33,113 @@ unset jscbin;
 alias youtube-to-mp3='youtube-dl -x --audio-format=mp3'
 
 alias weather='ansiweather'
+
+# Create a new directory and enter it
+function mkd() {
+	mkdir -p "$@" && cd "$_";
+}
+
+# Change working directory to the top-most Finder window location
+function cdf() { # short for `cdfinder`
+	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
+}
+
+# Determine size of a file or total size of a directory
+function fs() {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh;
+	else
+		local arg=-sh;
+	fi
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@";
+	else
+		du $arg .[^.]* ./*;
+	fi;
+}
+
+# `o` with no arguments opens the current directory, otherwise opens the given
+# location
+function o() {
+	if [ $# -eq 0 ]; then
+		open .;
+	else
+		open "$@";
+	fi;
+}
+
+# `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
+# the `.git` directory, listing directories first. The output gets piped into
+# `less` with options to preserve color and line numbers, unless the output is
+# small enough for one screen.
+function tre() {
+	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+}
+
+function instruct() {
+    echo -e "*** ${1}"
+    read -n 1 -s -r -p "Press any key to continue"
+}
+
+function is-running() {
+	COUNT="$(ps aux | grep "${1}" | wc -l)"
+	test "${COUNT}" -ne "1"
+	return $?
+}
+
+function run-once-in-background() {
+	CHECK="$(basename ${1})"
+	# echo "Checking for ${CHECK}"
+	pgrep "${CHECK}" 2>&1 > /dev/null
+	if [ $? -eq 1 ]; then
+		echo "Inititating command in the background: ${@}"
+		# sudo mkdir -p "/var/log/background" && sudo chmod -R 777 "/var/log/background/"
+		${@} > "/var/log/background/${CHECK}.log" 2>&1 &
+		# ${@} &
+	# else
+	# 	echo "Command ${CHECK} is running"
+	fi
+}
+
+function download-to-tmp() {
+	TEMP_TARGET="/tmp/$(date +'%s')"
+	mkdir -p "${TEMP_TARGET}"
+	cd "${TEMP_TARGET}"
+	# echo "Files will be saved in $(pwd)..."
+	curl -L -J -O "${1}" || exit 1
+  TEMP_FILE="$(ls | head -n 1)"
+  echo "${TEMP_TARGET}/${TEMP_FILE}"
+}
+
+function download-and-add-to-path() {
+	TEMP_FILE="$(download-to-tmp)"
+	chmod +x "${TEMP_FILE}"
+  sudo mv "${TEMP_FILE}" /usr/local/binary
+	BASENAME="$(basename ${FILE})"
+	if [ which "${BASENAME}" 2>&1 > /dev/null ]; then
+		echo "'${BASENAME}' was added successfully to path"
+	else
+		echo "Adding '${BASENAME}' to path failed..."
+		exit 1
+	fi
+}
+
+function download-and-open() {
+	TEMP_FILE="$(download-to-tmp)"
+  open "${TEMP_FILE}"
+  instruct "Finalize the installation manually..."
+}
+
+function weather-at() {
+	clear
+
+	CMD="ansiweather"
+	if [ -n "${1}" ]; then
+		CMD="${CMD} -l ${1}"
+	fi
+	if [ -n "${2}" ]; then
+		CMD="${CMD} -f ${2}"
+	fi
+
+	eval "${CMD}"
+}

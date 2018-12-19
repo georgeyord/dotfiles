@@ -1,11 +1,33 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/user/.oh-my-zsh"
 
+ZSH_DISABLE_COMPFIX=true
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+
+# Reference: https://medium.com/the-code-review/make-your-terminal-more-colourful-and-productive-with-iterm2-and-zsh-11b91607b98c
+POWERLEVEL9K_MODE='nerdfont-complete'
+# newline
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+# dir
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
+# vcs
+# Reference: https://github.com/bhilburn/powerlevel9k#vcs-symbols
+POWERLEVEL9K_SHOW_CHANGESET=true
+POWERLEVEL9K_CHANGESET_HASH_LENGTH=3
+# command_execution_time
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=2
+# Elements: anaconda aws aws_eb_env background_jobs newline disk_usage battery public_ip context user host custom command_execution_time dir docker_machine go_version history detect_virt icons_test ip vpn_ip laravel_version load node_version nvm nodeenv os_icon php_version ram rbenv chruby root_indicator rust_version rspec_stats rvm ssh status swap symfony2_tests symfony2_version time date todo vcs vi_mode virtualenv pyenv openfoam swift_version dir_writable kubecontext dropbox java_version powerlevel9k_setup powerlevel9k_teardown powerlevel9k_setup
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time time public_ip history ram)
+source /opt/codebase/others/powerlevel9k/powerlevel9k.zsh-theme
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load

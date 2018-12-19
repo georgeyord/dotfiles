@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+alias tailf='tail -f'
+
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
@@ -21,6 +23,7 @@ alias glb='git lb'
 alias gp='git push'
 alias gpatch='git commit --amend --no-edit'
 alias gs='git st'
+alias gwhat='git whatchanged'
 
 alias timestamp='date +%s'
 

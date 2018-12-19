@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Reference: https://hackernoon.com/handy-docker-aliases-4bd85089a3b8
+
 alias dc='docker-compose'
 alias dm='docker-machine'
 alias dmx='docker-machine ssh'
@@ -109,10 +111,10 @@ dkexe() {
 
 dkreboot() {
   osascript -e 'quit app "Docker"'
-  countdown 2
+  sleep 2
   open -a Docker
   echo "Restarting Docker engine"
-  countdown 120
+  sleep 120
 }
 
 dkstate() {

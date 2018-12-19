@@ -12,8 +12,7 @@ if [ -f ./repos.csv ]; then
         REPO_BASE_PATH="$(dirname ${REPO_PATH})"
 
         mkdir -p "${REPO_BASE_PATH}"
-        cd "${REPO_BASE_PATH}"
-        git clone "${REPO_URL}"
+        git clone "${REPO_URL}" "${REPO_PATH}"
       else
         echo "Git repo '${REPO_URL}' already exists in '${REPO_PATH}', moving on..."
       fi

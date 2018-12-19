@@ -22,6 +22,10 @@ brew cask install KeyboardCleanTool
 #http://hasseg.org/icalBuddy/examples.html
 hash icalBuddy 2> /dev/null || brew cask install icalBuddy
 
+gem install colorls
+gem install lolcat
+gem install artii
+
 # Read more: https://github.com/ng-vu/tomato
 if [ ! hash tomato 2> /dev/null ]; then
   instruct "Manually install Tomato for BTT

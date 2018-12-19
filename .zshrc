@@ -25,7 +25,7 @@ POWERLEVEL9K_CHANGESET_HASH_LENGTH=3
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=2
 # Elements: anaconda aws aws_eb_env background_jobs newline disk_usage battery public_ip context user host custom command_execution_time dir docker_machine go_version history detect_virt icons_test ip vpn_ip laravel_version load node_version nvm nodeenv os_icon php_version ram rbenv chruby root_indicator rust_version rspec_stats rvm ssh status swap symfony2_tests symfony2_version time date todo vcs vi_mode virtualenv pyenv openfoam swift_version dir_writable kubecontext dropbox java_version powerlevel9k_setup powerlevel9k_teardown powerlevel9k_setup
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline status)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs openfoam newline status)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time time public_ip history ram)
 source /opt/codebase/others/powerlevel9k/powerlevel9k.zsh-theme
 

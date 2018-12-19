@@ -14,7 +14,8 @@ alias c='clear'
 alias ll="ls -lsa ${colorflag}"
 
 # List all files colorized in long format
-alias l="ls -lF ${colorflag}"
+# alias l="ls -lF ${colorflag}"
+alias l="colorls -a"
 
 # List all files colorized in long format, excluding . and ..
 alias la="ls -lAF ${colorflag}"
@@ -97,8 +98,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
+# alias reload-zshrc='source ~/.zshrc'
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
-
-alias reload-zshrc='source ~/.zshrc'

@@ -4,7 +4,7 @@ set -e
 cd "$(dirname "${BASH_SOURCE}")";
 
 source ../../.exports
-source ../../.functions
+source ../../.alias
 
 set -x
 

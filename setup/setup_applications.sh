@@ -3,10 +3,10 @@
 cd "$(dirname "${BASH_SOURCE}")";
 
 source ../.exports
-source ../.functions
+source ../.alias
 
 function runApply() {
-    echo -e "*** Applying '${1}'..."
+    echo -e "*** Applying '$(basename ${1})'..."
     source ${1}
 }
 

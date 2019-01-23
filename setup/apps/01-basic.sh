@@ -4,7 +4,13 @@ set -e
 cd "$(dirname "${BASH_SOURCE}")";
 
 source ../../.exports
-source ../../.functions
+source ../../.alias
+
+# Load the shell aliases:
+for file in ~/.aliases/*; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 
 # Install Homebrew
 hash brew || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -25,10 +31,11 @@ brew install cask
 
 # Install dropbox
 brew cask install dropbox
-is-running "Dropbox" || instruct "Manually log-in to Dropbox"
 
 # Install Google chrome
 brew cask install google-chrome
+
+is-running "Dropbox" || instruct "Manually log-in to Dropbox"
 is-running "Dropbox" || instruct "Manually log-in to Chrome"
 
 set +x

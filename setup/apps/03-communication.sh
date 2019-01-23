@@ -3,9 +3,9 @@ set -e
 
 set -x
 
-# brew cask install skype
-# brew cask install slack
-# brew cask install viber
+brew cask install skype
+brew cask install slack
+brew cask install viber
 
 if [ ! -d /Applications/Bitrix24.app ]; then
   curl http://dl.bitrix24.com/b24/bitrix24_desktop.dmg -o /tmp/bitrix24_desktop.dmg

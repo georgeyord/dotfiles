@@ -1,6 +1,7 @@
 [alias]
 	addi = add
 	br = branch
+	bri = branch --sort=-committerdate
 	co = checkout
 	ct = commit
 	lb = log --graph --pretty=format:'%Cred%h%Creset -%C(green)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative

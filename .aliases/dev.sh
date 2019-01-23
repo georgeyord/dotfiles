@@ -24,8 +24,12 @@ alias gp='git push'
 alias gpatch='git commit --amend --no-edit'
 alias gs='git st'
 alias gwhat='git whatchanged'
+alias grepnocomment='egrep -v "^\s*(#|$)"'
 
 alias timestamp='date +%s'
+
+alias opt="cd /opt"
+alias ct="cd /opt/codebase/centaur/centaur-tech"
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {

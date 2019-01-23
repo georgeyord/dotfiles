@@ -4,7 +4,7 @@ set -e
 cd "$(dirname "${BASH_SOURCE}")";
 
 source ../../.exports
-source ../../.functions
+source ../../.alias
 
 set -x
 
@@ -17,6 +17,7 @@ hash kubectl || brew install kubectl
 mkdir -p ~/.kube
 
 hash kops || brew install kops
+hash ctop || brew install ctop
 
 hash aws || ( \
   brew install awscli && \
@@ -24,6 +25,6 @@ hash aws || ( \
 )
 
 # brew cask install minikube
-hash kubetail || brew tap johanhaleby/kubetail && brew install kubetail
+hash kubetail || ( brew tap johanhaleby/kubetail && brew install kubetail )
 
 set +x

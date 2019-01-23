@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE}")";
 source ../.exports
 
 function runApply() {
-    echo -e "*** Applying '${1}'..."
+    echo -e "*** Applying '$(basename ${1})'..."
     source ${1}
 }
 

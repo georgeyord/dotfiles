@@ -4,7 +4,7 @@ set -e
 cd "$(dirname "${BASH_SOURCE}")";
 
 source ../../.exports
-source ../../.functions
+source ../../.alias
 
 # Save Homebrew’s installed location.
 BREW_PREFIX=$(brew --prefix)
@@ -80,7 +80,6 @@ brew install woff2
 # Install other useful binaries.
 brew install ack
 #brew install exiv2
-brew install git
 # brew install git-lfs
 # brew install imagemagick --with-webp
 # brew install lua

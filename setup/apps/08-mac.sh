@@ -4,13 +4,16 @@ set -e
 cd "$(dirname "${BASH_SOURCE}")";
 
 source ../../.exports
-source ../../.functions
+source ../../.alias
 
 set -x
 
 # Core casks
 brew cask install flycut
 defaults write com.generalarcade.flycut loadOnStartup -bool true
+
+brew cask install coconutbattery
+
 brew cask install growl-fork
 brew install terminal-notifier
 brew install aerial

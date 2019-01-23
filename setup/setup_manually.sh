@@ -3,7 +3,7 @@
 cd "$(dirname "${BASH_SOURCE}")";
 
 source ../.exports
-source ../.functions
+source ../.alias
 
 instruct "Allow installations from unidentified developer
 

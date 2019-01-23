@@ -103,10 +103,10 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 # Show input sources menu
 sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool TRUE
 
-# Set input sources change keyboard shortcau to alt+cmd+space
+# Set input sources change keyboard shortcu tto alt+cmd+space
 sudo defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys 60 value parameters -array 32 49 1572864
 
-# Add inout source: greek
+# Add input source: greek
 defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add '{InputSourceKind="Keyboard Layout"; "KeyboardLayout Name"="Greek"; "KeyboardLayout ID"=-18944;}'
 
 # Stop automatically rearrange Spaces based on most recent use

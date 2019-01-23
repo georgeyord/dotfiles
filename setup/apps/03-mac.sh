@@ -9,25 +9,27 @@ source ../../.alias
 set -x
 
 # Core casks
+brew cask install alfred
+
 brew cask install flycut
 defaults write com.generalarcade.flycut loadOnStartup -bool true
 
 brew cask install coconutbattery
 
-brew cask install growl-fork
+# brew cask install growl-fork
 brew install terminal-notifier
-brew install aerial
+brew cask install aerial
 # Obsolete, now using bettertouchtool
 # brew cask install touchswitcher
 brew cask install bettertouchtool
 brew cask install numi
 brew cask install KeyboardCleanTool
 #http://hasseg.org/icalBuddy/examples.html
-hash icalBuddy 2> /dev/null || brew cask install icalBuddy
+hash icalBuddy 2> /dev/null || brew install ical-buddy
 
-gem install colorls
-gem install lolcat
-gem install artii
+sudo gem install colorls
+sudo gem install lolcat
+sudo gem install artii
 
 # Read more: https://github.com/ng-vu/tomato
 if [ ! hash tomato 2> /dev/null ]; then
@@ -39,9 +41,6 @@ if [ ! hash tomato 2> /dev/null ]; then
 "
 fi
 
-hash wallpaper 2> /dev/null || brew install wallpaper
-../setup_wallpapers.sh
-
 brew cask install itsycal
 defaults write com.mowglii.ItsycalApp HideIcon -bool false
 defaults write com.mowglii.ItsycalApp HighlightedDOWs -bool true
@@ -51,11 +50,6 @@ defaults write com.mowglii.ItsycalApp SizePreference -bool true
 defaults write com.mowglii.ItsycalApp ShowMonthInIcon -bool true
 defaults write com.mowglii.ItsycalApp UseOutlineIcon -bool true
 defaults write com.mowglii.ItsycalApp WeekStartDOW -bool true
-
-brew install findutils
-# brew cask install java
-
-brew cask install alfred
 
 if [ ! is-running "Alfred" ]; then
 

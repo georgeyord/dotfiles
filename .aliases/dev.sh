@@ -162,3 +162,8 @@ function backup-plists() {
 		defaults read ${FILE} > "${TARGET_DIR}/${BASENAME}"
 	done
 }
+
+# Read more: https://github.com/ng-vu/tomato
+function tomato-start() {
+	run-once-in-background tomato -n=3 -colon=: -work=25m -short=300s -long=15m -uuid=912E4929-3BA9-49A8-B492-4F0FDB60E819 -port=12345 -command='terminal-notifier -title Pomodoro -message "Hey, time is over!" -sound default'
+}

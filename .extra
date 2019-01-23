@@ -22,6 +22,3 @@ export KUBECONFIG="~/.kube/config:${HOME}/Dropbox/Work/Centaur/credentials/kube/
 export WALLPAPER="/Users/user/Dropbox/backgrounds/927393-amazing-grain-wallpaper-2880x1800-ipad-pro.jpg"
 export WALLPAPER_1="/Users/user/Dropbox/backgrounds/1151480-gorgerous-fields-wallpaper-1920x1200-for-android-50.jpg"
 export WALLPAPER_2="/Users/user/Dropbox/backgrounds/1151409-fields-wallpaper-2560x1600-for-phones.jpg"
-
-# Read more: https://github.com/ng-vu/tomato
-run-once-in-background tomato -n=3 -colon=: -work=25m -short=300s -long=15m -uuid=912E4929-3BA9-49A8-B492-4F0FDB60E819 -port=12345 -command='terminal-notifier -title Pomodoro -message "Hey, time is over!" -sound default'

@@ -62,4 +62,11 @@ brew install ansible
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
 
+# Install Rust language
+curl https://sh.rustup.rs -sSf | sh
+
+# Install bat: A cat(1) clone with wings - https://github.com/sharkdp/bat
+# Bat like cat ;-)
+brew install bat
+
 set +x

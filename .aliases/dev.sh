@@ -31,6 +31,11 @@ alias timestamp='date +%s'
 alias opt="cd /opt"
 alias ct="cd /opt/codebase/centaur/centaur-tech"
 
+alias wh="which"
+
+# Bat like cat ;-)
+alias cat='bat'
+
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
 	local tmpFile="${@%/}.tar";

@@ -1,1 +1,4 @@
 export PATH=$(brew --prefix openvpn)/sbin:$PATH
+
+# Bat like cat ;-)
+export PATH=$HOME/.cargo/bin:$PATH

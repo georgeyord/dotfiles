@@ -43,9 +43,7 @@ WALLPAPER_IMAGE="/Users/user/Dropbox/backgrounds/927332-grain-wallpaper-for-meiz
 
 # Used in ./setup/directories/ssh.sh
 export SSH_KEYS_PATH="/Users/user/Dropbox/Dev/Private/ssh_keys/aio/"
-
-# Used in ./setup/directories/ssh.sh
-export SSH_KEYS_PATH="/Users/user/Dropbox/Dev/Private/ssh_keys/aio/"
+export SSH_WORK_KEYS_PATH="/Users/user/Dropbox/Dev/Private/ssh_keys/centaur-devops/"
 
 # Used in ./setup/apps/07-docker.sh
 export DOCKER_MOUNTABLE_HOST_FOLDER="/opt/codebase"
@@ -94,3 +92,6 @@ if [ -f ~/.iterm2/it2setkeylabel ]; then
   ~/.iterm2/it2setkeylabel set F17 "17"
   ~/.iterm2/it2setkeylabel push "${ITERM2_KEYLABEL_BYOBU}"
 fi
+
+# Bat like cat ;-)
+export BAT_CONFIG_PATH="$HOME/.bat.conf"

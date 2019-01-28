@@ -138,15 +138,14 @@ redis() {
 }
 
 alias kb-events='kubectl get events --watch --sort-by=.metadata.creationTimestamp'
-alias kb-dashboard='kubectl proxy > /dev/null'
 alias kb-tail='kubetail --since 1m --timestamps --colored-output'
 alias kb-run-temp='kubectl run --rm -i --tty --restart=Never temp'
 alias kb-run-curl='kubectl run --rm -i --tty --restart=Never temp --image=byrnedo/alpine-curl '
 
-function kube-dashboard() {
+function kb-dashboard() {
 	clear && \
 	export KOPS_STATE_STORE=s3://state.kops.store.centaur && \
 	echo "Admin password: $(kops get secrets admin --type secret -oplaintext)" | grep password && \
-	echo -e '\nKubernetes dashboard: http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/service?namespace=_all' & \
+	echo -e '\nKubernetes dashboard: http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/service?namespace=_all'
 	kubectl proxy > /dev/null
 }

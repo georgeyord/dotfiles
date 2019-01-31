@@ -6,13 +6,14 @@ alias dc='docker-compose'
 alias dm='docker-machine'
 alias dmx='docker-machine ssh'
 alias dk='docker'
+alias dokcer='docker'
 alias dki='docker images'
 alias dks='docker service'
 alias dkrm='docker rm'
 alias dkl='docker logs'
 alias dklf='docker logs -f'
-alias dkflush='docker rm `docker ps --no-trunc -aq`'
-alias dkflush2='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
+alias dkrmforce='docker rm -f `docker ps --no-trunc -aq`'
+alias dkrmidangling='docker rmi $(docker images --filter "dangling=true" -q --no-trunc)'
 alias dkt='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}"'
 alias dkps="docker ps --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}'"
 
@@ -141,6 +142,8 @@ alias kb-events='kubectl get events --watch --sort-by=.metadata.creationTimestam
 alias kb-tail='kubetail --since 1m --timestamps --colored-output'
 alias kb-run-temp='kubectl run --rm -i --tty --restart=Never temp'
 alias kb-run-curl='kubectl run --rm -i --tty --restart=Never temp --image=byrnedo/alpine-curl '
+alias kb-list-nodes-per-pod='kubectl get pod -o=custom-columns=POD:.metadata.name,NODE:.spec.nodeName --all-namespaces | sort'
+alias kb-list-pods-per-node='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,POD:.metadata.name --all-namespaces | sort'
 
 function kb-dashboard() {
 	clear && \

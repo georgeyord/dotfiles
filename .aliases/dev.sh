@@ -176,8 +176,6 @@ function tomato-start() {
 function whl() {
 	while true; do
 		$@
-		if [ -n "${S}" ]; then
-			sleep "${S}"
-		fi
+		sleep "${S:1}"
 	done
 }

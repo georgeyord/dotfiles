@@ -33,8 +33,9 @@ alias ct="cd /opt/codebase/centaur/centaur-tech"
 
 alias wh="which"
 
-# Bat like cat ;-)
-alias cat='bat'
+function ntlp() {
+	sudo lsof -PiTCP -sTCP:LISTEN | awk '{print $2"\t"$3"\t"$1"\t\t"$9}'
+}
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {

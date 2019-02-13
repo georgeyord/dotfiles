@@ -26,5 +26,9 @@ hash aws 2> /dev/null || ( \
 
 # brew cask install minikube
 hash kubetail 2> /dev/null || ( brew tap johanhaleby/kubetail && brew install kubetail )
+# https://github.com/helm/helm
+hash helm 2> /dev/null || brew install kubernetes-helm
+# https://github.com/azure/draft
+hash draft 2> /dev/null || ( brew tap azure/draft && brew install azure/draft/draft )
 
 set +x

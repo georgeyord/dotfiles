@@ -138,6 +138,7 @@ redis() {
   docker exec -it $redisLabel redis-cli
 }
 
+alias kc='kubectl'
 alias kb-events='kubectl get events --watch --sort-by=.metadata.creationTimestamp'
 alias kb-tail='kubetail --since 1m --timestamps --colored-output'
 alias kb-run-temp='kubectl run --rm -i --tty --restart=Never temp'

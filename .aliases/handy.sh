@@ -102,6 +102,7 @@ function run-once-in-background() {
 }
 
 function download-to-tmp() {
+	set -e
 	TEMP_TARGET="/tmp/$(date +'%s')"
 	mkdir -p "${TEMP_TARGET}"
 	cd "${TEMP_TARGET}"
@@ -112,11 +113,15 @@ function download-to-tmp() {
 }
 
 function download-and-add-to-path() {
-	TEMP_FILE="$(download-to-tmp)"
+	set -e
+	TEMP_FILE="$(download-to-tmp $1)"
 	chmod +x "${TEMP_FILE}"
-  sudo mv "${TEMP_FILE}" /usr/local/binary
-	BASENAME="$(basename ${FILE})"
-	if [ which "${BASENAME}" 2>&1 > /dev/null ]; then
+	TARGET_PATH="/usr/local/bin"
+  sudo mv "${TEMP_FILE}" "${TARGET_PATH}"
+	BASENAME="$(basename ${TEMP_FILE})"
+	which "${BASENAME}" 2>&1 > /dev/null
+	RESULT=$?
+	if [ "${RESULT}" == "0" ]; then
 		echo "'${BASENAME}' was added successfully to path"
 	else
 		echo "Adding '${BASENAME}' to path failed..."
@@ -124,8 +129,12 @@ function download-and-add-to-path() {
 	fi
 }
 
+function backup-file() {
+	cp "${1}" "${1}.$(date +%s).bak"
+}
+
 function download-and-open() {
-	TEMP_FILE="$(download-to-tmp)"
+	TEMP_FILE="$(download-to-tmp $1)"
   open "${TEMP_FILE}"
   instruct "Finalize the installation manually..."
 }

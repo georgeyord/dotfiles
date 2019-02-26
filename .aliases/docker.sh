@@ -18,7 +18,7 @@ alias dkt='docker stats --format "table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t
 alias dkps="docker ps --format '{{.ID}} ~ {{.Names}} ~ {{.Status}} ~ {{.Image}}'"
 
 dkln() {
-  docker logs -f `docker ps | grep $1 | awk '{print $1}'`
+  docker logs -f "$(docker ps | grep '$1' | awk '{print $1}')"
 }
 
 dkp() {
@@ -32,14 +32,14 @@ dkp() {
     read -p "Are you in the right directory?"
   fi
 
-  VERSION=`cat package.json | jq .version | sed 's/\"//g'`
-  NAME=`cat package.json | jq .name | sed 's/\"//g'`
+  VERSION=$(cat package.json | jq .version | sed 's/\"//g')
+  NAME=$(cat package.json | jq .name | sed 's/\"//g')
   LABEL="$1/$NAME:$VERSION"
 
-  docker build --build-arg NPM_TOKEN=${NPM_TOKEN} -t $LABEL .
+  docker build --build-arg NPM_TOKEN="${NPM_TOKEN}" -t "$LABEL" .
 
   read -p "Press enter to publish"
-  docker push $LABEL
+  docker push "$LABEL"
 }
 
 dkpnc() {
@@ -53,13 +53,13 @@ dkpnc() {
     read -p "Are you in the right directory?"
   fi
 
-  VERSION=`cat package.json | jq .version | sed 's/\"//g'`
-  NAME=`cat package.json | jq .name | sed 's/\"//g'`
+  VERSION=$(cat package.json | jq .version | sed 's/\"//g')
+  NAME=$(cat package.json | jq .name | sed 's/\"//g')
   LABEL="$1/$NAME:$VERSION"
 
-  docker build --build-arg NPM_TOKEN=${NPM_TOKEN} --no-cache=true -t $LABEL .
+  docker build --build-arg NPM_TOKEN="${NPM_TOKEN}" --no-cache=true -t "$LABEL" .
   read -p "Press enter to publish"
-  docker push $LABEL
+  docker push "$LABEL"
 }
 
 dkpl() {
@@ -73,18 +73,18 @@ dkpl() {
     read -p "Are you in the right directory?"
   fi
 
-  VERSION=`cat package.json | jq .version | sed 's/\"//g'`
-  NAME=`cat package.json | jq .name | sed 's/\"//g'`
+  VERSION=$(cat package.json | jq .version | sed 's/\"//g')
+  NAME=$(cat package.json | jq .name | sed 's/\"//g')
   LATEST="$1/$NAME:latest"
 
-  docker build --build-arg NPM_TOKEN=${NPM_TOKEN} --no-cache=true -t $LATEST .
+  docker build --build-arg NPM_TOKEN="${NPM_TOKEN}" --no-cache=true -t "$LATEST" .
   read -p "Press enter to publish"
-  docker push $LATEST
+  docker push "$LATEST"
 }
 
 dkclean() {
-  docker rm $(docker ps --all -q -f status=exited)
-  docker volume rm $(docker volume ls -qf dangling=true)
+  docker rm "$(docker ps --all -q -f status=exited)"
+  docker volume rm "$(docker volume ls -qf dangling=true)"
 }
 
 dkprune() {
@@ -98,16 +98,16 @@ dktop() {
 dkstats() {
   if [ $# -eq 0 ]
     then docker stats --no-stream;
-    else docker stats --no-stream | grep $1;
+    else docker stats --no-stream | grep "$1";
   fi
 }
 
 dke() {
-  docker exec -it $1 /bin/sh
+  docker exec -it "$1" /bin/sh
 }
 
 dkexe() {
-  docker exec -it $1 $2
+  docker exec -it "$1" "$2"
 }
 
 dkreboot() {
@@ -119,36 +119,36 @@ dkreboot() {
 }
 
 dkstate() {
-  docker inspect $1 | jq .[0].State
+  docker inspect "$1" | jq .[0].State
 }
 
 dksb() {
-  docker service scale $1=0
+  docker service scale "$1=0"
   sleep 2
-  docker service scale $1=$2
+  docker service scale "$1=$2"
 }
 
 mongo() {
-  mongoLabel=`docker ps | grep mongo | awk '{print $NF}'`
-  docker exec -it $mongoLabel mongo "$@"
+  mongoLabel=$(docker ps | grep mongo | awk '{print $NF}')
+  docker exec -it "$mongoLabel" mongo "$@"
 }
 
 redis() {
-  redisLabel=`docker ps | grep redis | awk '{print $NF}'`
-  docker exec -it $redisLabel redis-cli
+  redisLabel=$(docker ps | grep redis | awk '{print $NF}')
+  docker exec -it "$redisLabel" redis-cli
 }
 
 alias kc='kubectl'
 
-alias kb-context='kubectl config use-context'
-alias kb-events='kubectl get events --watch --sort-by=.metadata.creationTimestamp'
-alias kb-tail='kubetail --since 1m --timestamps --colored-output'
-alias kb-run-temp='kubectl run --rm -i --tty --restart=Never temp'
-alias kb-run-curl='kubectl run --rm -i --tty --restart=Never temp --image=byrnedo/alpine-curl '
-alias kb-list-nodes-per-pod='kubectl get pod -o=custom-columns=POD:.metadata.name,NODE:.spec.nodeName --all-namespaces | sort'
-alias kb-list-pods-per-node='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,POD:.metadata.name --all-namespaces | sort'
+alias kb_switch_context='kubectl config use-context'
+alias kb_events='kubectl get events --watch --sort-by=.metadata.creationTimestamp'
+alias kb_tail='kubetail --since 1m --timestamps --colored-output'
+alias kb_run_temp='kubectl run --rm -i --tty --restart=Never temp'
+alias kb_run_curl='kubectl run --rm -i --tty --restart=Never temp --image=byrnedo/alpine-curl '
+alias kb_list_nodes_per_pod='kubectl get pod -o=custom-columns=POD:.metadata.name,NODE:.spec.nodeName --all-namespaces | sort'
+alias kb_list_pods_per_node='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,POD:.metadata.name --all-namespaces | sort'
 
-function kb-dashboard() {
+kb_dashboard() {
 	clear && \
 	export KOPS_STATE_STORE=s3://state.kops.store.centaur && \
 	echo "Admin password: $(kops get secrets admin --type secret -oplaintext)" | grep password && \

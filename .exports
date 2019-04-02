@@ -95,3 +95,7 @@ fi
 
 # Bat like cat ;-)
 export BAT_CONFIG_PATH="$HOME/.bat.conf"
+
+# Go development
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"

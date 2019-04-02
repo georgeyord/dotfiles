@@ -47,6 +47,10 @@ set -x
 brew install python
 brew install python3
 
+# Install Go lang
+brew install go
+hash gotop 2> /dev/null || ( brew tap cjbassi/gotop && brew install gotop)
+
 # Install ruby-build and rbenv
 # brew install ruby-build
 # brew install rbenv

@@ -14,7 +14,8 @@
 # complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[ "${commands[kubectl]}" ] && source <(kubectl completion zsh)
 
 # Revert ugly sed after help upgrade: https://github.com/helm/helm/issues/5046
-[ "${commands[helm]}" ] && source <(helm completion zsh | sed -E 's/\["(.+)"\]/\[\1\]/g')
+# [ "${commands[helm]}" ] && source <(helm completion zsh | sed -E 's/\["(.+)"\]/\[\1\]/g')
+
+[ $commands[kubectl] ] && source <(kubectl completion zsh)

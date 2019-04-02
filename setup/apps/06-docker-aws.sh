@@ -30,5 +30,6 @@ hash kubetail 2> /dev/null || ( brew tap johanhaleby/kubetail && brew install ku
 hash helm 2> /dev/null || brew install kubernetes-helm
 # https://github.com/azure/draft
 hash draft 2> /dev/null || ( brew tap azure/draft && brew install azure/draft/draft )
+hash schelm 2> /dev/null || go get -u github.com/databus23/schelm
 
 set +x

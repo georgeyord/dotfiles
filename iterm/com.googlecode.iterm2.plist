@@ -303,7 +303,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>-1522 62 918 514 -2048 -252 2048 1152 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>320 50 570 452 0 0 1440 900 </string>
+	<string>1440 -101 556 293 1440 -131 2048 1152 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>-1872 -182 570 452 -2048 -252 2048 1152 </string>
 	<key>NeverWarnAboutShortLivedSessions_42093663-3B70-41E0-88AC-9F1670DE14A7</key>
@@ -1019,6 +1019,8 @@
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
 	<false/>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -1065,7 +1067,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-01-14T10:50:31Z</date>
+	<date>2019-04-03T14:33:51Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>Secure Input</key>

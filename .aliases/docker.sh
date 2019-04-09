@@ -148,10 +148,17 @@ alias kb_run_curl='kubectl run --rm -i --tty --restart=Never temp --image=byrned
 alias kb_list_nodes_per_pod='kubectl get pod -o=custom-columns=POD:.metadata.name,NODE:.spec.nodeName --all-namespaces | sort'
 alias kb_list_pods_per_node='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,POD:.metadata.name --all-namespaces | sort'
 
+kb_list_nodes_with_labels() {
+  kubectl get nodes -o="go-template-file=${HOME}/.kube/go-template-files/kb_list_nodes_with_labels.gohtml"
+}
+
+kb_list_nodes_with_centaur_labels() {
+  kubectl get nodes -o="go-template-file=${HOME}/.kube/go-template-files/kb_list_nodes_with_centaur_labels.gohtml"
+}
+
 kb_dashboard() {
 	clear && \
 	export KOPS_STATE_STORE=s3://state.kops.store.centaur && \
 	echo "Admin password: $(kops get secrets admin --type secret -oplaintext)" | grep password && \
-	echo -e '\nKubernetes dashboard: http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/service?namespace=_all'
 	kubectl proxy > /dev/null
 }

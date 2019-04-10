@@ -2,3 +2,4 @@ export PATH="$PATH:$(brew --prefix openvpn)/sbin"
 # Bat like cat ;-)
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"

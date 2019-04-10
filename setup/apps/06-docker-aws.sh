@@ -24,6 +24,15 @@ hash aws 2> /dev/null || ( \
   instruct "Run 'aws configure' and use the credentials from https://gitlab.com/Centech/centaur-tech/wikis/devops/kops/setup-kops-awscli"
 )
 
+hash kubectl-krew 2> /dev/null || ( \
+  set -x; cd "$(mktemp -d)" &&
+  curl -fsSLO "https://storage.googleapis.com/krew/v0.2.1/krew.{tar.gz,yaml}" &&
+  tar zxvf krew.tar.gz &&
+  ./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" install \
+    --manifest=krew.yaml --archive=krew.tar.gz
+)
+kubectl krew install ingress-nginx
+
 # brew cask install minikube
 hash kubetail 2> /dev/null || ( brew tap johanhaleby/kubetail && brew install kubetail )
 # https://github.com/helm/helm

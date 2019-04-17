@@ -32,6 +32,7 @@ alias opt="cd /opt"
 alias ct="cd /opt/codebase/centaur/centaur-tech"
 
 alias wh="which"
+alias wtch="watch -d -n 15"
 
 function ntlp() {
 	sudo lsof -PiTCP -sTCP:LISTEN | awk '{print $2"\t"$3"\t"$1"\t\t"$9}'

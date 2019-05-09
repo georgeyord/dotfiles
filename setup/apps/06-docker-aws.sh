@@ -31,7 +31,12 @@ hash kubectl-krew 2> /dev/null || ( \
   ./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" install \
     --manifest=krew.yaml --archive=krew.tar.gz
 )
+kubectl krew install exec-as
 kubectl krew install ingress-nginx
+kubectl krew install get-all
+kubectl krew install resource-capacity
+kubectl krew install sniff
+kubectl krew install view-utilization
 
 # brew cask install minikube
 hash kubetail 2> /dev/null || ( brew tap johanhaleby/kubetail && brew install kubetail )

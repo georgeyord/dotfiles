@@ -13,6 +13,7 @@ hash git 2> /dev/null || brew install git
 brew cask install java
 hash wget 2> /dev/null || brew install wget
 hash jq 2> /dev/null || brew install jq
+hash yq 2> /dev/null || brew install python-
 hash caffeine 2> /dev/null || brew cask install caffeine
 hash iterm2 2> /dev/null || brew cask install iterm2
 hash imgcat 2> /dev/null || curl -fsSL https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash

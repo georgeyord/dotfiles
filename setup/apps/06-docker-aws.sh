@@ -46,4 +46,7 @@ hash helm 2> /dev/null || brew install kubernetes-helm
 hash draft 2> /dev/null || ( brew tap azure/draft && brew install azure/draft/draft )
 hash schelm 2> /dev/null || go get -u github.com/databus23/schelm
 
+helm plugin list | grep "^env" >/dev/null 2>&1 || helm plugin install https://github.com/adamreese/helm-env
+helm plugin list | grep "^diff" >/dev/null 2>&1 || helm plugin install https://github.com/databus23/helm-diff --version master
+
 set +x

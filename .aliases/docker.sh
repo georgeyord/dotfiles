@@ -145,8 +145,9 @@ alias kb_events='kubectl get events --watch --sort-by=.metadata.creationTimestam
 alias kb_tail='kubetail --since 1m --timestamps --colored-output'
 alias kb_run_temp='kubectl run --rm -i --tty --restart=Never temp'
 alias kb_run_curl='kubectl run --rm -i --tty --restart=Never temp --image=byrnedo/alpine-curl '
-alias kb_list_nodes_per_pod='kubectl get pod -o=custom-columns=POD:.metadata.name,NODE:.spec.nodeName --all-namespaces | sort'
-alias kb_list_pods_per_node='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,POD:.metadata.name --all-namespaces | sort'
+alias kb_list_nodes_per_pod='kubectl get pod -o=custom-columns=POD:.metadata.name,NAMESPACE:.metadata.namespace,NODE:.spec.nodeName --all-namespaces | sort'
+alias kb_list_pods_per_node='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAMESPACE:.metadata.namespace,POD:.metadata.name --all-namespaces | sort'
+alias kb_list_pods_with_ip='kubectl get pod -o=custom-columns=POD:.metadata.name,NAMESPACE:.metadata,INTERNAL_IP:.status.podIP,AFFINITY:spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[0].matchExpressions[0].key,NODE:.spec.nodeName'
 
 kb_list_nodes_with_labels() {
   kubectl get nodes -o="go-template-file=${HOME}/.kube/go-template-files/kb_list_nodes_with_labels.gohtml"

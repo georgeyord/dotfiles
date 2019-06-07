@@ -40,11 +40,18 @@ kubectl krew install view-utilization
 
 # brew cask install minikube
 hash kubetail 2> /dev/null || ( brew tap johanhaleby/kubetail && brew install kubetail )
+# https://github.com/wercker/stern
+hash stern 2> /dev/null || ( brew install stern )
 # https://github.com/helm/helm
 hash helm 2> /dev/null || brew install kubernetes-helm
 # https://github.com/azure/draft
 hash draft 2> /dev/null || ( brew tap azure/draft && brew install azure/draft/draft )
+# https://github.com/databus23/schelm
 hash schelm 2> /dev/null || go get -u github.com/databus23/schelm
+# https://github.com/derailed/k9s
+hash k9s 2> /dev/null || ( brew tap derailed/k9s && brew install k9s )
+# https://github.com/derailed/popeye
+hash popeye 2> /dev/null || ( brew tap derailed/popeye && brew install popeye )
 
 helm plugin list | grep "^env" >/dev/null 2>&1 || helm plugin install https://github.com/adamreese/helm-env
 helm plugin list | grep "^diff" >/dev/null 2>&1 || helm plugin install https://github.com/databus23/helm-diff --version master

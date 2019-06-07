@@ -1,0 +1,116 @@
+#!/bin/bash
+
+if [[ $OSTYPE == *"darwin"* ]]; then
+  export IS_MAC=1
+else
+  export IS_MAC=0
+fi
+
+#########################################
+############## FUNCTIONS ################
+#########################################
+
+function colorPrint {
+    ERROR='\e[31m'
+    SUCCESS='\e[32m'
+    WARNING='\e[33m'
+    INFO='\e[34m'
+    NEUTRAL='\e[0m'
+
+    if [[ $IS_MAC -eq 1 ]] ; then
+        ERROR=''
+        SUCCESS=''
+        WARNING=''
+        INFO=''
+        NEUTRAL=''
+    fi
+
+    case "$1" in
+      ERROR)
+        echo -e "${ERROR}${*:2}${NEUTRAL}"
+        ;;
+      SUCCESS)
+        echo -e "${SUCCESS}${*:2}${NEUTRAL}"
+        ;;
+      WARNING)
+        echo -e "${WARNING}${*:2}${NEUTRAL}"
+        ;;
+      INFO)
+        echo -e "${INFO}${*:2}${NEUTRAL}"
+        ;;
+      *)
+        colorPrint ERROR "Color '${1}' not found"
+        echo "${*s}"
+        ;;
+   esac
+}
+
+# Check if the arguments is a Docker command or and option starting with dash (-)
+function isDockerCommand () {
+  VALID_DOCKER_COMMANDS=("build" "bundle" "config" "create" "down" "events" "exec" "help" "images" "kill" "logs" "pause" "port" "ps" "pull" "push" "restart" "rm" "run" "scale" "start" "stop" "top" "unpause" "up" "version")
+
+  for COMMAND in "${VALID_DOCKER_COMMANDS[@]}"; do
+    if [[ $1 == -* ]] ; then
+      echo 2
+      return
+    fi
+    if [[ "$1" == "$COMMAND" ]] ; then
+      echo 1
+      return
+    fi
+  done
+  echo 0
+}
+
+#########################################
+################# MAIN ##################
+#########################################
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+
+  if [ -z "$1" ]; then
+    echo "At least 1 argument is needed, exiting..."
+    exit 1
+  fi
+
+  COMMANDS=()
+  CHECK=1
+
+  # Loop through the bash arguments and split to commands
+  while [ $# -gt 0 ]; do
+    IS_DOCKER_COMMAND=$(isDockerCommand "$1")
+    if [[ $IS_DOCKER_COMMAND == 1 ]] ; then
+      #echo "Command '$1' added"
+      COMMANDS+=("$1")
+      CHECK=0
+    elif [[ $IS_DOCKER_COMMAND == 2 ]] || [ $CHECK -eq 0 ]; then
+      COMMANDS_LENGTH="$((${#COMMANDS[@]}-1))"
+      # colorPrint INFO "Option '$1' added to command '${COMMANDS[$COMMANDS_LENGTH]}'"
+      COMMANDS[$COMMANDS_LENGTH]="${COMMANDS[$COMMANDS_LENGTH]} $1"
+    elif [ $CHECK -eq 1 ] ; then
+      colorPrint ERROR "Undefined argument '$1' specified, exiting..."
+      exit 1
+    fi
+    shift
+  done
+
+  # for COMMAND in "${COMMANDS[@]}"; do
+  #   colorPrint INFO "Added command: '$COMMAND'"
+  # done
+
+  if [ ${#COMMANDS[@]} -eq 0 ]; then
+    colorPrint ERROR "No commands specified, exiting..."
+    exit 1
+  fi
+
+  for COMMAND in "${COMMANDS[@]}"; do
+    colorPrint SUCCESS "\nRun 'docker-compose ${COMMAND}'"
+    eval "docker-compose ${COMMAND}"
+
+    if [[ $? -ne 0 ]] ; then
+      colorPrint ERROR "Run 'docker-compose ${COMMAND}' exited..."
+      exit 1
+    fi
+  done
+
+fi

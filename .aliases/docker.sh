@@ -157,6 +157,10 @@ kb_list_nodes_with_centaur_labels() {
   kubectl get nodes -o="go-template-file=${HOME}/.kube/go-template-files/kb_list_nodes_with_centaur_labels.gohtml"
 }
 
+kb_list_pods_with_restarts() {
+  kubectl get pods -o="go-template-file=${HOME}/.kube/go-template-files/kb_list_pods_with_restarts.gohtml" --all-namespaces | sort --human-numeric-sort -r
+}
+
 kb_dashboard() {
 	clear && \
 	export KOPS_STATE_STORE=s3://state.kops.store.centaur && \

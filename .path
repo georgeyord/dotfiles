@@ -1,6 +1,16 @@
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$(brew --prefix openvpn)/sbin"
+
+function addToPath() {
+  if [ -d "$1" ]; then
+    export PATH="$PATH:$1"
+  else
+    echo "Path '$1' is not a directory so it could not be added to PATH"
+  fi
+}
+addToPath "$HOME/bin"
+addToPath "$(brew --prefix openvpn)/sbin"
 # Bat like cat ;-)
-export PATH="$PATH:$HOME/.cargo/bin"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-export PATH="$PATH:${KREW_ROOT:-$HOME/.krew}/bin"
+addToPath "$HOME/.cargo/bin"
+addToPath "${GOPATH}/bin"
+addToPath "${GOROOT}/bin"
+addToPath "${KREW_ROOT:-$HOME/.krew}/bin"
+addToPath "/opt/applications/kui/bin"

@@ -149,6 +149,10 @@ alias kb_list_nodes_per_pod='kubectl get pod -o=custom-columns=POD:.metadata.nam
 alias kb_list_pods_per_node='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAMESPACE:.metadata.namespace,POD:.metadata.name --all-namespaces | sort'
 alias kb_list_pods_with_ip='kubectl get pod -o=custom-columns=POD:.metadata.name,NAMESPACE:.metadata,INTERNAL_IP:.status.podIP,AFFINITY:spec.affinity.nodeAffinity.requiredDuringSchedulingIgnoredDuringExecution.nodeSelectorTerms[0].matchExpressions[0].key,NODE:.spec.nodeName'
 
+kb_last_termination_status() {
+  kubectl get pod -o go-template='{{range.status.containerStatuses}}{{"Container Name: "}}{{.name}}{{"\r\nLastState: "}}{{.lastState}}{{end}}' $1
+}
+
 kb_list_nodes_with_labels() {
   kubectl get nodes -o="go-template-file=${HOME}/.kube/go-template-files/kb_list_nodes_with_labels.gohtml"
 }

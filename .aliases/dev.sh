@@ -179,6 +179,14 @@ function tomato-start() {
 function whl() {
 	while true; do
 		$@
-		sleep "${S:1}"
+		date
+		sleep "${S:-1}"
+	done
+}
+
+function untilsuccess() {
+	until $@; do
+		date
+		sleep "${S:-1}"
 	done
 }

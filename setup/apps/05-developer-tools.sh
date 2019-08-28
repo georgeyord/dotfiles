@@ -28,6 +28,7 @@ hash envsubst 2> /dev/null || ( brew install gettext && brew link --force gettex
 # hash timeular 2> /dev/null || download-and-open https://timeular-desktop-packages.s3.amazonaws.com/mac/production/Timeular.dmg
 hash postman 2> /dev/null || brew cask install postman
 hash meld 2> /dev/null || brew cask install meld
+hash asciinema 2> /dev/null || brew install asciinema
 brew info openvpn || ( brew install openvpn && sudo brew services start openvpn )
 
 set +x
@@ -65,17 +66,13 @@ hash gotop 2> /dev/null || ( brew tap cjbassi/gotop && brew install gotop)
 brew install ansible
 
 # Fuzzy search
-brew install fzf
-(brew --prefix)/opt/fzf/install
-
-# Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+hash fzf 2> /dev/null || ( brew install fzf && "$(brew --prefix)/opt/fzf/install" )
 
 # Install Rust language
 curl https://sh.rustup.rs -sSf | sh
 
 # Install bat: A cat(1) clone with wings - https://github.com/sharkdp/bat
 # Bat like cat ;-)
-brew install bat
+hash bat 2> /dev/null || brew install bat
 
 set +x

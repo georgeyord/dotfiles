@@ -78,4 +78,7 @@ cd /tmp
 unzip Grid.Clock.0.0.4.saver.zip
 open Grid\ Clock.saver
 
+# Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize suspicious-package quicklookase qlvideo
+
 set +x

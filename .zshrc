@@ -13,19 +13,24 @@ ZSH_DISABLE_COMPFIX=true
 
 # Reference: https://medium.com/the-code-review/make-your-terminal-more-colourful-and-productive-with-iterm2-and-zsh-11b91607b98c
 POWERLEVEL9K_MODE='nerdfont-complete'
+
 # newline
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
+
 # dir
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
 POWERLEVEL9K_SHORTEN_DELIMITER=""
 POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
+
 # vcs
 # Reference: https://github.com/bhilburn/powerlevel9k#vcs-symbols
 POWERLEVEL9K_SHOW_CHANGESET=true
 POWERLEVEL9K_CHANGESET_HASH_LENGTH=3
+
 # command_execution_time
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=2
+
 #Custom command: Kube context
 function kube_context() {
   KUBE_CONTEXT="$(kubectl config current-context)"
@@ -37,8 +42,19 @@ POWERLEVEL9K_CUSTOM_KUBE_CONTEXT_BACKGROUND="navyblue"
 POWERLEVEL9K_CUSTOM_KUBE_CONTEXT_FOREGROUND="darkblue1"
 
 # Elements: anaconda aws aws_eb_env background_jobs newline disk_usage battery public_ip context user host custom command_execution_time dir docker_machine go_version history detect_virt icons_test ip vpn_ip laravel_version load node_version nvm nodeenv os_icon php_version ram rbenv chruby root_indicator rust_version rspec_stats rvm ssh status swap symfony2_tests symfony2_version time date todo vcs vi_mode virtualenv pyenv openfoam swift_version dir_writable kubecontext dropbox java_version powerlevel9k_setup powerlevel9k_teardown powerlevel9k_setup
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir custom_kube_context vcs openfoam newline status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time time public_ip history ram)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir newline status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time custom_kube_context vcs time ram)
+
+# Backup 2019-08
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir custom_kube_context vcs openfoam newline status)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time time public_ip history ram)
+
+# Change the prompt behaviour when recording with asciinema
+if [[ -n $ASCIINEMA_REC ]]; then
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir custom_kube_context status)
+  POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+fi
+
 source /opt/codebase/others/powerlevel9k/powerlevel9k.zsh-theme
 
 # Set list of themes to pick from when loading at random

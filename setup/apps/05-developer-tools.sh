@@ -52,6 +52,8 @@ brew install python3
 # Install Go lang
 brew install go
 hash gotop 2> /dev/null || ( brew tap cjbassi/gotop && brew install gotop)
+hash dlv 2> /dev/null || ( go get -u github.com/go-delve/delve/cmd/dlv )
+hash gotest 2> /dev/null || ( go get -u github.com/rakyll/gotest )
 
 # Install ruby-build and rbenv
 # brew install ruby-build

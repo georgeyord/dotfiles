@@ -13,3 +13,9 @@ export KUBECONFIG="${HOME}/Dropbox/Work/Centaur/credentials/kube/config"
 export WALLPAPER="/Users/user/Dropbox/backgrounds/927393-amazing-grain-wallpaper-2880x1800-ipad-pro.jpg"
 export WALLPAPER_1="/Users/user/Dropbox/backgrounds/1151480-gorgerous-fields-wallpaper-1920x1200-for-android-50.jpg"
 export WALLPAPER_2="/Users/user/Dropbox/backgrounds/1151409-fields-wallpaper-2560x1600-for-phones.jpg"
+
+function iterm2_print_user_vars() {
+  local KUBE_CONTEXT="$(kubectl config current-context)"
+  local KUBE_NAMESPACE="$(kubectl config get-contexts --no-headers | grep '*' | awk '{print $5}')"
+  iterm2_set_user_var kbContext "${KUBE_CONTEXT}/${KUBE_NAMESPACE}"
+}

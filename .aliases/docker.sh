@@ -171,3 +171,9 @@ kb_dashboard() {
 	echo "Admin password: $(kops get secrets admin --type secret -oplaintext)" | grep password && \
 	kubectl proxy > /dev/null
 }
+
+function kb_context() {
+  KUBE_CONTEXT="$(kubectl config current-context)"
+  KUBE_NAMESPACE="$(kubectl config get-contexts --no-headers | grep '*' | awk '{print $5}')"
+  echo "${KUBE_CONTEXT}/${KUBE_NAMESPACE}"
+}

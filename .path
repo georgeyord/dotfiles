@@ -6,11 +6,15 @@ function addToPath() {
     echo "Path '$1' is not a directory so it could not be added to PATH"
   fi
 }
+
 addToPath "$HOME/bin"
 addToPath "$(brew --prefix openvpn)/sbin"
 # Bat like cat ;-)
 addToPath "$HOME/.cargo/bin"
-addToPath "${GOPATH}/bin"
-addToPath "${GOROOT}/bin"
+hash go 2> /dev/null && (
+  addToPath "$(go env GOPATH)/bin"
+  addToPath "${GOBIN}"
+  addToPath "${GOROOT}/bin"
+)
 addToPath "${KREW_ROOT:-$HOME/.krew}/bin"
 addToPath "/opt/applications/kui/bin"

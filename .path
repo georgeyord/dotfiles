@@ -11,10 +11,10 @@ addToPath "$HOME/bin"
 addToPath "$(brew --prefix openvpn)/sbin"
 # Bat like cat ;-)
 addToPath "$HOME/.cargo/bin"
-hash go 2> /dev/null && (
+test -f /usr/local/bin/go 2> /dev/null && (
   addToPath "$(go env GOPATH)/bin"
   addToPath "${GOBIN}"
   addToPath "${GOROOT}/bin"
-)
+) || echo >&2 "Go lang not found"
 addToPath "${KREW_ROOT:-$HOME/.krew}/bin"
 addToPath "/opt/applications/kui/bin"

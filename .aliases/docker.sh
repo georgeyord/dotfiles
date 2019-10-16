@@ -141,7 +141,7 @@ redis() {
 alias kc='kubectl'
 
 alias kb_switch_context='kubectl config use-context'
-alias kb_events='kubectl get events --watch --sort-by=.metadata.creationTimestamp'
+alias kb_events='kubectl get events --all-namespaces --watch --output=custom-columns="LAST SEEN:.lastTimestamp,NAMESPACE:.involvedObject.namespace,NAME:.involvedObject.name,MESSAGE:.message,NAME:.involvedObject.name,TYPE:.type,REASON:.reason"'
 alias kb_tail='kubetail --since 1m --timestamps --colored-output'
 alias kb_run_temp='kubectl run --rm -i --tty --restart=Never temp'
 alias kb_run_curl='kubectl run --rm -i --tty --restart=Never temp --image=byrnedo/alpine-curl '
@@ -172,8 +172,15 @@ kb_dashboard() {
 	kubectl proxy > /dev/null
 }
 
-function kb_context() {
+kb_context() {
   KUBE_CONTEXT="$(kubectl config current-context)"
   KUBE_NAMESPACE="$(kubectl config get-contexts --no-headers | grep '*' | awk '{print $5}')"
   echo "${KUBE_CONTEXT}/${KUBE_NAMESPACE}"
+}
+
+aws_get_public_dns_from_private_dns() {
+	aws ec2 describe-instances \
+    --filter "Name=private-dns-name,Values=$1" \
+    --query 'Reservations[*].Instances[*].[PublicDnsName]' \
+    --output text
 }

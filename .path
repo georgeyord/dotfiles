@@ -17,4 +17,4 @@ test -f /usr/local/bin/go 2> /dev/null && (
   addToPath "${GOROOT}/bin"
 ) || echo >&2 "Go lang not found"
 addToPath "${KREW_ROOT:-$HOME/.krew}/bin"
-addToPath "/opt/applications/kui/bin"
+# addToPath "/opt/applications/kui/bin"

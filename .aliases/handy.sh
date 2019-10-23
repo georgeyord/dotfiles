@@ -93,7 +93,7 @@ function run-once-in-background() {
 	pgrep "${CHECK}" 2>&1 > /dev/null
 	if [ $? -eq 1 ]; then
 		echo "Inititating command in the background: ${@}"
-		test ! -d "/var/log/background" || ( sudo mkdir -p "/var/log/background" && sudo chmod -R 777 "/var/log/background/" )
+		test -d "/var/log/background" || ( sudo mkdir -p "/var/log/background" && sudo chmod -R 777 "/var/log/background/" )
 		${@} > "/var/log/background/${CHECK}.log" 2>&1 &
 		# ${@} &
 	# else

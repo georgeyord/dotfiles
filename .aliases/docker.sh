@@ -139,6 +139,12 @@ redis() {
 }
 
 alias kc='kubectl'
+alias kccl='kubectl -n centaur-logging'
+alias kccp='kubectl -n centaur-production'
+alias kccs='kubectl -n centaur-staging'
+alias kcks='kubectl -n kube-system'
+alias kcni='kubectl -n nginx-ingress'
+alias kccm='kubectl -n cert-manager'
 
 alias kb_switch_context='kubectl config use-context'
 alias kb_events='kubectl get events --all-namespaces --watch --output=custom-columns="LAST SEEN:.lastTimestamp,NAMESPACE:.involvedObject.namespace,NAME:.involvedObject.name,MESSAGE:.message,NAME:.involvedObject.name,TYPE:.type,REASON:.reason"'

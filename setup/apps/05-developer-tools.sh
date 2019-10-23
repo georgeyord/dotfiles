@@ -10,15 +10,15 @@ set -x
 
 hash git 2> /dev/null || brew install git
 
-brew cask install java
+hash wget 2> /dev/null || brew cask install java
 hash wget 2> /dev/null || brew install wget
 hash jq 2> /dev/null || brew install jq
-hash yq 2> /dev/null || brew install python-
+hash yq 2> /dev/null || brew install yq
 hash caffeine 2> /dev/null || brew cask install caffeine
-hash iterm2 2> /dev/null || brew cask install iterm2
+hash iterm2_set_user_var 2> /dev/null || brew cask install iterm2
 hash imgcat 2> /dev/null || curl -fsSL https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
 hash zsh 2> /dev/null || curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
 
 hash ccze 2> /dev/null || brew install ccze
@@ -51,8 +51,11 @@ brew install python3
 
 # Install Go lang
 brew install go
+export GOBIN="$(go env GOPATH)/bin"
+export GOROOT="$(brew --prefix golang)/libexec"
+
 hash gotop 2> /dev/null || ( brew tap cjbassi/gotop && brew install gotop)
-hash dlv 2> /dev/null || ( go get -u github.com/go-delve/delve/cmd/dlv )
+# hash dlv 2> /dev/null || ( go get -u github.com/go-delve/delve/cmd/dlv )
 hash gotest 2> /dev/null || ( go get -u github.com/rakyll/gotest )
 
 # Install ruby-build and rbenv

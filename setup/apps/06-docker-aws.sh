@@ -31,6 +31,7 @@ hash kubectl-krew 2> /dev/null || ( \
   ./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" install \
     --manifest=krew.yaml --archive=krew.tar.gz
 )
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 kubectl krew install exec-as
 kubectl krew install ingress-nginx
 kubectl krew install get-all
@@ -53,6 +54,7 @@ hash k9s 2> /dev/null || ( brew tap derailed/k9s && brew install k9s )
 # https://github.com/derailed/popeye
 hash popeye 2> /dev/null || ( brew tap derailed/popeye && brew install popeye )
 
+mkdir -p "$(helm home)/plugins"
 helm plugin list | grep "^env" >/dev/null 2>&1 || helm plugin install https://github.com/adamreese/helm-env
 helm plugin list | grep "^diff" >/dev/null 2>&1 || helm plugin install https://github.com/databus23/helm-diff --version master
 

@@ -8,6 +8,9 @@ source ../../.alias
 
 set -x
 
+# Permanently Disable Gatekeeper
+sudo spctl --master-disable
+
 # Core casks
 brew cask install alfred
 

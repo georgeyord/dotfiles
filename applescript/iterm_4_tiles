@@ -1,0 +1,32 @@
+#!/usr/bin/osascript
+tell application "iTerm2"
+    write text "Creating new tab with 4 tiles..."
+    create tab with profile "default"
+
+    tell current session of current tab of current window
+        write text "orch"
+
+        split vertically with default profile
+        split horizontally with default profile
+    end tell
+    tell third session of current tab of current window
+        split horizontally with default profile
+    end tell
+
+    tell first session of current tab of current window
+        set name to "First"
+        set background color to {0, 0, 10000, 0}
+    end tell
+    tell second session of current tab of current window
+        set name to "Second"
+        set background color to {0, 0, 8000, 0}
+    end tell
+    tell third session of current tab of current window
+        set name to "Third"
+        set background color to {0, 0, 6000, 0}
+    end tell
+    tell fourth session of current tab of current window
+        set name to "Fourth"
+        set background color to {0, 0, 4000, 0}
+    end tell
+end tell

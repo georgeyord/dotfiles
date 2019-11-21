@@ -35,6 +35,18 @@ alias orch="cd /opt/codebase/centaur/centaur-tech/devops/kubernetes/helm/charts/
 alias wh="which"
 alias wtch="watch -d -n 15"
 
+function applescript() {
+	if [[ -z "$1" ]] || [[ "$1" == "list" ]]; then
+		echo "Available options:"
+		ls ~/applescript/
+		echo -e "\nUse '$0 list' for a list of available options"
+	elif [[ "$1" == "help" ]]; then
+		echo "Enhanced 'osascript', use '$0 list' for a list of available options"
+	else
+		osascript ~/applescript/$1
+	fi
+}
+
 function ntlp() {
 	sudo lsof -PiTCP -sTCP:LISTEN | awk '{print $2"\t"$3"\t"$1"\t\t"$9}'
 }

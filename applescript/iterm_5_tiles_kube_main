@@ -1,0 +1,42 @@
+#!/usr/bin/osascript
+
+tell application "iTerm2"
+    write text "Creating new tab with 5 tiles..."
+    create tab with profile "default"
+
+    tell current session of current tab of current window
+        write text "orch"
+
+        split vertically with default profile
+        split horizontally with default profile
+    end tell
+    tell third session of current tab of current window
+        split horizontally with default profile
+        split horizontally with default profile
+    end tell
+
+    tell first session of current tab of current window
+        set name to "First"
+        set background color to {0, 0, 10000, 0}
+        write text "wtch kubectl get po -n centaur-logging"
+    end tell
+    tell second session of current tab of current window
+        set name to "Second"
+        set background color to {0, 0, 10000, 0}
+        write text "wtch kubectl get po"
+    end tell
+    tell third session of current tab of current window
+        set name to "Third"
+        set background color to {0, 0, 10000, 0}
+        write text "whl bash -c 'kubectl get events --all-namespaces --watch --output=custom-columns=\"LAST SEEN:.lastTimestamp,NAMESPACE:.involvedObject.namespace,NAME:.involvedObject.name,MESSAGE:.message,NAME:.involvedObject.name,TYPE:.type,REASON:.reason\"'"
+    end tell
+    tell fourth session of current tab of current window
+        set name to "Fourth"
+        set background color to {0, 0, 10000, 0}
+        write text "wtch -n 5 kubectl top no"
+    end tell
+    tell fifth session of current tab of current window
+        set name to "Fifth"
+        set background color to {0, 0, 10000, 0}
+    end tell
+end tell

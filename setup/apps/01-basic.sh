@@ -35,6 +35,12 @@ brew cask install dropbox
 # Install Google chrome
 brew cask install google-chrome
 
+# Install Google chrome canaruy
+brew cask install google-chrome-canary
+
+# Install Browser
+brew cask install brave-browser
+
 is-running "Dropbox" || instruct "Manually log-in to Dropbox"
 is-running "Dropbox" || instruct "Manually log-in to Chrome"
 

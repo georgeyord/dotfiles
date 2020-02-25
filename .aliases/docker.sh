@@ -128,12 +128,12 @@ dksb() {
   docker service scale "$1=$2"
 }
 
-mongo() {
+dkmongo() {
   mongoLabel=$(docker ps | grep mongo | awk '{print $NF}')
   docker exec -it "$mongoLabel" mongo "$@"
 }
 
-redis() {
+dkredis() {
   redisLabel=$(docker ps | grep redis | awk '{print $NF}')
   docker exec -it "$redisLabel" redis-cli
 }

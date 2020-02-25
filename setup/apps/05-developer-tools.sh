@@ -24,6 +24,8 @@ brew cask install font-hack-nerd-font
 hash ccze 2> /dev/null || brew install ccze
 hash watch 2> /dev/null || brew install watch
 hash envsubst 2> /dev/null || ( brew install gettext && brew link --force gettext)
+hash socat 2> /dev/null || brew install socat
+hash netcat 2> /dev/null || brew install netcat
 
 # hash timeular 2> /dev/null || download-and-open https://timeular-desktop-packages.s3.amazonaws.com/mac/production/Timeular.dmg
 hash postman 2> /dev/null || brew cask install postman
@@ -68,7 +70,11 @@ hash gotest 2> /dev/null || ( go get -u github.com/rakyll/gotest )
 # brew install heroku-toolbelt
 # heroku update
 
+# Install Ansible
 brew install ansible
+
+# Install MongoDB shell
+hash mongo 2> /dev/null || ( brew tap mongodb/brew && brew install mongodb-community-shell)
 
 # Fuzzy search
 hash fzf 2> /dev/null || ( brew install fzf && "$(brew --prefix)/opt/fzf/install" )

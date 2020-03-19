@@ -76,11 +76,14 @@ brew install ansible
 # Install MongoDB shell
 hash mongo 2> /dev/null || ( brew tap mongodb/brew && brew install mongodb-community-shell)
 
+# Install Kafka
+hash kafka-topics 2> /dev/null || ( brew install kafka)
+
 # Fuzzy search
 hash fzf 2> /dev/null || ( brew install fzf && "$(brew --prefix)/opt/fzf/install" )
 
 # Install Rust language
-curl https://sh.rustup.rs -sSf | sh
+hash cargo version 2> /dev/null || ( curl https://sh.rustup.rs -sSf | sh )
 
 # Install bat: A cat(1) clone with wings - https://github.com/sharkdp/bat
 # Bat like cat ;-)

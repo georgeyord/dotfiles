@@ -35,6 +35,8 @@ alias orch="cd /opt/codebase/centaur/centaur-tech/devops/kubernetes/helm/charts/
 alias wh="which"
 alias wtch="watch -d -n 15"
 
+alias prp="pipenv run python"
+
 function applescript() {
 	if [[ -z "$1" ]] || [[ "$1" == "list" ]]; then
 		echo "Available options:"

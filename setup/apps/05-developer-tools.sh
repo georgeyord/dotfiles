@@ -50,6 +50,7 @@ set -x
 # Install Python
 brew install python
 brew install python3
+brew install pipenv
 
 # Install Go lang
 brew install go

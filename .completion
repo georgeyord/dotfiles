@@ -4,3 +4,7 @@
 hash pipenv 2> /dev/null && \
   eval "$(pipenv --completion)" || \
   echo >&2 "Python's pipenv not found"
+
+hash pyenv 2> /dev/null && \
+  eval "$(pyenv init -)" || \
+  echo >&2 "Python's pyenv not found"

@@ -48,9 +48,19 @@ set -x
 # brew install nvm
 
 # Install Python
-brew install python
-brew install python3
-brew install pipenv
+hash python 2> /dev/null || brew install python
+hash python3 2> /dev/null || brew install python3
+hash pipenv 2> /dev/null || brew install pipenv
+hash pyenv 2> /dev/null || (
+  brew install pyenv
+  pyenv install 3.7.7
+  pyenv global 3.7.7
+  )
+hash poetry 2> /dev/null || (
+    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+    mkdir $ZSH/plugins/poetry
+    poetry completions zsh > $ZSH/plugins/poetry/_poetry
+  )
 
 # Install Go lang
 brew install go

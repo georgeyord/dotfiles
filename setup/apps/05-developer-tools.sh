@@ -62,6 +62,9 @@ hash poetry 2> /dev/null || (
     poetry completions zsh > $ZSH/plugins/poetry/_poetry
   )
 
+# Install Raspberry Pi related
+brew cask install balenaetcher
+
 # Install Go lang
 brew install go
 export GOBIN="$(go env GOPATH)/bin"

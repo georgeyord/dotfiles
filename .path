@@ -1,11 +1,19 @@
 
 function addToPath() {
   if [ -d "$1" ]; then
-    export PATH="$PATH:$1"
+    if [[ "$2" == "FIRST" ]]; then
+      export PATH="$1:$PATH"
+    else
+      export PATH="$PATH:$1"
+    fi
   else
     echo "Path '$1' is not a directory so it could not be added to PATH"
   fi
 }
+
+# Apple switched the TLS/SSL engine from OpenSSL to their own Secure Transport engine in Apple distributed cURL binary which breaks client certificate usage
+# https://unix.stackexchange.com/questions/192944/how-to-fix-curl-sslv3-alert-handshake-failure
+addToPath "/usr/local/opt/curl/bin" FIRST
 
 addToPath "$HOME/bin"
 addToPath "$(brew --prefix openvpn)/sbin"

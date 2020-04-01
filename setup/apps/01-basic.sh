@@ -23,6 +23,9 @@ brew update
 # Upgrade any already-installed formulae.
 brew upgrade
 
+# Install cURL
+brew install curl
+
 # Install git
 brew install git
 

@@ -4,10 +4,13 @@ set -e
 set -x
 
 brew cask install spotify
-brew cask install vlc
-
 brew cask install gimp
 
-brew install youtube-dl
+hash vlc 2> /dev/null || brew cask install vlc
+
+# Torrent client
+brew cask install folx
+
+hash youtube-dl 2> /dev/null || brew install youtube-dl
 
 set +x

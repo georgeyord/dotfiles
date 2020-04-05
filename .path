@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 function addToPath() {
   if [ -d "$1" ]; then
@@ -25,3 +26,6 @@ test -f /usr/local/bin/go 2> /dev/null && \
 
 addToPath "${KREW_ROOT:-$HOME/.krew}/bin"
 # addToPath "/opt/applications/kui/bin"
+
+test -f /usr/local/bin/pyenv 2> /dev/null && \
+  addToPath "$PYENV_ROOT/bin"

@@ -102,3 +102,7 @@ test -f /usr/local/bin/go 2> /dev/null && (
   export GOBIN="$(go env GOPATH)/bin"
   export GOROOT="$(brew --prefix golang)/libexec"
 ) || echo >&2 "Go lang not found"
+
+test -f /usr/local/bin/pyenv 2> /dev/null && (
+  export PYENV_ROOT="$HOME/.pyenv"
+) || echo >&2 "Pyenv not found"

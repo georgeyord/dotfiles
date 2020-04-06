@@ -5,7 +5,3 @@
 /opt/codebase/others/zsh-git-prompt,https://github.com/olivierverdier/zsh-git-prompt
 /opt/codebase/others/powerlevel9k,https://github.com/bhilburn/powerlevel9k.git
 /opt/codebase/others/iterm-dracula,https://github.com/dracula/iterm.git
-
-/opt/codebase/centaur/centaur-tech,git@gitlab.com:Centech/centaur-tech.git
-/opt/codebase/centaur/centaur-tech-fog-agent,git@gitlab.com:Centech/centaur-tech-fog-agent.git
-/opt/codebase/centaur/devops,git@gitlab.com:Centech/devops.git

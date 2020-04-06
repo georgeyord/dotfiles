@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 # Add custom commands
 
+DROPBOX_PATH="${DROPBOX_PATH:-/opt/Dropbox}"
+
 mkdir -p ~/.ssh
-cp -n ~/Dropbox/Dev/Private/ssh_keys/centaur-devops/id_rsa ~/.ssh/devops.pem
-chmod 400 ~/.ssh/devops.pem
+cp -n /opt/Dropbox/Dev/Private/ssh_keys/lenses_devops/lenses_devops ~/.ssh/lenses_devops
+chmod 400 ~/.ssh/lenses_devops
 
 # Used in `kops` cli command
 export KOPS_STATE_STORE="s3://state.kops.store.centaur"
 
-export KUBECONFIG="${HOME}/Dropbox/Work/Centaur/credentials/kube/config"
+export KUBECONFIG="${DROPBOX_PATH}/Work/Centaur/credentials/kube/config"
 
-export WALLPAPER="/Users/user/Dropbox/backgrounds/927393-amazing-grain-wallpaper-2880x1800-ipad-pro.jpg"
-export WALLPAPER_1="/Users/user/Dropbox/backgrounds/1151480-gorgerous-fields-wallpaper-1920x1200-for-android-50.jpg"
-export WALLPAPER_2="/Users/user/Dropbox/backgrounds/1151409-fields-wallpaper-2560x1600-for-phones.jpg"
+export WALLPAPER="${DROPBOX_PATH}/backgrounds/927393-amazing-grain-wallpaper-2880x1800-ipad-pro.jpg"
+export WALLPAPER_1="${DROPBOX_PATH}/backgrounds/1151480-gorgerous-fields-wallpaper-1920x1200-for-android-50.jpg"
+export WALLPAPER_2="${DROPBOX_PATH}/backgrounds/1151409-fields-wallpaper-2560x1600-for-phones.jpg"
 
 function iterm2_print_user_vars() {
   local KUBE_CONTEXT="$(kubectl config current-context)"

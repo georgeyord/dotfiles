@@ -38,12 +38,14 @@ export GPG_TTY=$(tty);
 ################################$$
 
 # Used in ./.macos
-COMPUTER_NAME="centaur-mac"
-WALLPAPER_IMAGE="/Users/user/Dropbox/backgrounds/927332-grain-wallpaper-for-meizu.jpg"
+COMPUTER_NAME="${COMPUTER_NAME:-yord-mac}"
+DROPBOX_PATH="${DROPBOX_PATH:-/opt/Dropbox}"
+
+WALLPAPER_IMAGE="${DROPBOX_PATH}/backgrounds/927332-grain-wallpaper-for-meizu.jpg"
 
 # Used in ./setup/directories/ssh.sh
-export SSH_KEYS_PATH="/Users/user/Dropbox/Dev/Private/ssh_keys/aio/"
-export SSH_WORK_KEYS_PATH="/Users/user/Dropbox/Dev/Private/ssh_keys/centaur-devops/"
+export SSH_KEYS_PATH="${DROPBOX_PATH}/Dev/Private/ssh_keys/aio/"
+export SSH_WORK_KEYS_PATH="${DROPBOX_PATH}/Dev/Private/ssh_keys/lenses_devops/"
 
 # Used in ./setup/apps/07-docker.sh
 export DOCKER_MOUNTABLE_HOST_FOLDER="/opt/codebase"

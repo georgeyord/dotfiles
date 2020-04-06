@@ -14,12 +14,12 @@ hash wget 2> /dev/null || brew cask install java
 hash wget 2> /dev/null || brew install wget
 hash jq 2> /dev/null || brew install jq
 hash yq 2> /dev/null || brew install yq
-hash caffeine 2> /dev/null || brew cask install caffeine
-hash iterm2_set_user_var 2> /dev/null || brew cask install iterm2
-hash imgcat 2> /dev/null || curl -fsSL https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
+hash caffeinate 2> /dev/null || brew cask install caffeine
+which iterm2_set_user_var 2> /dev/null || brew cask install iterm2
+which imgcat 2> /dev/null || curl -fsSL https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
 hash zsh 2> /dev/null || curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | bash
-brew tap homebrew/cask-fonts
-brew cask install font-hack-nerd-font
+brew tap homebrew/cask-fonts && brew cask install font-hack-nerd-font
+hash tunnelblick 2> /dev/null || brew cask install tunnelblick
 
 hash ccze 2> /dev/null || brew install ccze
 hash watch 2> /dev/null || brew install watch
@@ -58,7 +58,7 @@ hash pyenv 2> /dev/null || (
   )
 hash poetry 2> /dev/null || (
     curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-    mkdir $ZSH/plugins/poetry
+    mkdir -p $ZSH/plugins/poetry
     poetry completions zsh > $ZSH/plugins/poetry/_poetry
   )
 
@@ -66,9 +66,11 @@ hash poetry 2> /dev/null || (
 brew cask install balenaetcher
 
 # Install Go lang
-brew install go
-export GOBIN="$(go env GOPATH)/bin"
-export GOROOT="$(brew --prefix golang)/libexec"
+hash go 2> /dev/null || (
+	brew install go
+	export GOBIN="$(go env GOPATH)/bin"
+	export GOROOT="$(brew --prefix golang)/libexec"
+)
 
 hash gotop 2> /dev/null || ( brew tap cjbassi/gotop && brew install gotop)
 # hash dlv 2> /dev/null || ( go get -u github.com/go-delve/delve/cmd/dlv )

@@ -66,8 +66,8 @@ Disable Spotlight:
 
 Setup Alfred:
 - Open alfred
-- Set Powerpack key to $(cat ~/Dropbox/Dev/apps/mac-apps/alfred.v3.key)
-- Set preferences fodler to '~/Dropbox/Dev/apps/mac-apps/configurations/alfred/Alfred.alfredpreferences'
+- Set Powerpack key to $(cat $HOME/Dropbox/Dev/apps/mac-apps/alfred.v3.key)
+- Set preferences fodler to '$HOME/Dropbox/Dev/apps/mac-apps/configurations/alfred/Alfred.alfredpreferences'
 "
 fi
 

@@ -50,8 +50,9 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time custom_kube_context v
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time time public_ip history ram)
 
 # Change the prompt behaviour when recording with asciinema
+# To get a clean prompt manually run `ASCIINEMA_REC=1 reload`
 if [[ -n $ASCIINEMA_REC ]]; then
-  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir custom_kube_context status)
+  POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status)
   POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 fi
 

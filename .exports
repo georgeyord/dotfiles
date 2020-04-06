@@ -46,6 +46,7 @@ WALLPAPER_IMAGE="${DROPBOX_PATH}/backgrounds/927332-grain-wallpaper-for-meizu.jp
 # Used in ./setup/directories/ssh.sh
 export SSH_KEYS_PATH="${DROPBOX_PATH}/Dev/Private/ssh_keys/aio/"
 export SSH_WORK_KEYS_PATH="${DROPBOX_PATH}/Dev/Private/ssh_keys/lenses_devops/"
+export HISTORY_PATH="${DROPBOX_PATH}/Dev/Private/zsh_history"
 
 # Used in ./setup/apps/07-docker.sh
 export DOCKER_MOUNTABLE_HOST_FOLDER="/opt/codebase"

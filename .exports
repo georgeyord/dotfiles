@@ -101,7 +101,7 @@ export BAT_CONFIG_PATH="$HOME/.bat.conf"
 
 # Go development
 test -f /usr/local/bin/go 2> /dev/null && (
-  # export GOPATH="${HOME}/.go"
+  export GOPATH="${HOME}/go"
   export GOBIN="$(go env GOPATH)/bin"
   export GOROOT="$(brew --prefix golang)/libexec"
 ) || echo >&2 "Go lang not found"

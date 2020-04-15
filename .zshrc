@@ -113,6 +113,8 @@ ZSH_CUSTOM=~/.zsh-custom
 plugins=(
   git
   poetry
+  docker
+  docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh

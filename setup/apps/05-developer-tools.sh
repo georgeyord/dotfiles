@@ -48,6 +48,7 @@ hash watch 2> /dev/null || brew install watch
 hash envsubst 2> /dev/null || ( brew install gettext && brew link --force gettext)
 hash socat 2> /dev/null || brew install socat
 hash netcat 2> /dev/null || brew install netcat
+hash shellcheck 2> /dev/null || brew install shellcheck
 
 # hash timeular 2> /dev/null || download-and-open https://timeular-desktop-packages.s3.amazonaws.com/mac/production/Timeular.dmg
 hash postman 2> /dev/null || brew cask install postman

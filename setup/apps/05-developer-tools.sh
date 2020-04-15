@@ -59,7 +59,7 @@ brew info openvpn || ( brew install openvpn && sudo brew services start openvpn 
 
 set +x
 
-git config --global core.editor 'vim'
+git config --global core.editor "${EDITOR}"
 git config --global color.branch auto
 git config --global color.diff auto
 git config --global color.status auto

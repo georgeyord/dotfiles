@@ -16,10 +16,14 @@ function addToPath() {
 # https://unix.stackexchange.com/questions/192944/how-to-fix-curl-sslv3-alert-handshake-failure
 addToPath "/usr/local/opt/curl/bin" FIRST
 
+addToPath "/usr/local/opt/gnu-sed/libexec/gnubin" FIRST
+
 addToPath "$HOME/bin"
+
 addToPath "$(brew --prefix openvpn)/sbin"
-# Bat like cat ;-)
+
 addToPath "$HOME/.cargo/bin"
+
 test -f /usr/local/bin/go 2> /dev/null && \
   addToPath "$(go env GOPATH)/bin" && \
   addToPath "$(go env GOROOT)/bin"

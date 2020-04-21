@@ -28,6 +28,7 @@ brew install curl
 
 # Install git
 brew install git
+brew install git-extras
 
 # Install Cask
 brew install cask

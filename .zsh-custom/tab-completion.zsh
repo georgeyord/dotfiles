@@ -19,3 +19,5 @@
 # [ "${commands[helm]}" ] && source <(helm completion zsh | sed -E 's/\["(.+)"\]/\[\1\]/g')
 
 [ $commands[kubectl] ] && source <(kubectl completion zsh)
+
+[ -f /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh ] && source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh

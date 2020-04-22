@@ -9,6 +9,8 @@ source ../../.alias
 set -x
 
 hash git 2> /dev/null || brew install git
+# Github cli: https://github.com/cli/cli
+hash gh 2> /dev/null || brew install gh
 
 hash java 2> /dev/null || (
   brew cask install java
@@ -42,7 +44,6 @@ hash zsh 2> /dev/null || (
 # Fuzzy search
 hash fzf 2> /dev/null || ( brew install fzf && "$(brew --prefix)/opt/fzf/install" )
 
-
 hash ccze 2> /dev/null || brew install ccze
 hash watch 2> /dev/null || brew install watch
 hash envsubst 2> /dev/null || ( brew install gettext && brew link --force gettext)
@@ -70,7 +71,8 @@ git config --global core.autocrlf input
 set -x
 
 # Install NodeJS
-# brew install nvm
+hash node 2> /dev/null || brew install node
+hash yarn 2> /dev/null || brew install yarn
 
 # Install Python
 hash python 2> /dev/null || brew install python

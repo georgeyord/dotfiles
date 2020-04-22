@@ -24,6 +24,7 @@ hash aws 2> /dev/null || ( \
   instruct "Run 'aws configure' and use the credentials from https://gitlab.com/Centech/centaur-tech/wikis/devops/kops/setup-kops-awscli"
 )
 hash gcloud 2> /dev/null || ( brew cask install google-cloud-sdk )
+hash doctl 2> /dev/null || ( brew install doctl )
 hash terraform 2> /dev/null || ( brew install terraform )
 
 hash kubectl-krew 2> /dev/null || ( \

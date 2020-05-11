@@ -14,6 +14,7 @@ if [ -n "${DOCKER_MOUNTABLE_HOST_FOLDER}" ]; then
 fi
 
 hash kubectl 2> /dev/null || brew install kubectl
+is-installed-application "Kube Forwarder" 2> /dev/null || brew cask install kube-forwarder
 mkdir -p ~/.kube
 
 hash kops 2> /dev/null || brew install kops
@@ -47,7 +48,13 @@ hash kubetail 2> /dev/null || ( brew tap johanhaleby/kubetail && brew install ku
 # https://github.com/wercker/stern
 hash stern 2> /dev/null || ( brew install stern )
 # https://github.com/helm/helm
-hash helm 2> /dev/null || brew install kubernetes-helm
+hash helm 2> /dev/null || brew install helm
+hash helm2 2> /dev/null || (
+  brew install helm@2
+  ln -s /usr/local/opt/helm@2/bin/helm /usr/local/bin/helm2
+  ln -s /usr/local/opt/helm@2/bin/tiller /usr/local/bin/tiller
+  ln -s /usr/local/bin/helm /usr/local/bin/helm3
+)
 # https://github.com/azure/draft
 hash draft 2> /dev/null || ( brew tap azure/draft && brew install azure/draft/draft )
 # https://github.com/databus23/schelm

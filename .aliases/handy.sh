@@ -87,6 +87,10 @@ function is-running() {
 	return $?
 }
 
+function is-installed-application() {
+	ls -lsa /Applications | grep $1 > /dev/null
+}
+
 function run-once-in-background() {
 	CHECK="$(basename ${1})"
 	echo "Checking for ${CHECK}"

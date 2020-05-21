@@ -115,7 +115,7 @@ plugins=(
   poetry
   docker
   docker-compose
-  zsh-autocomplete
+  # zsh-autocomplete
 )
 
 source $ZSH/oh-my-zsh.sh

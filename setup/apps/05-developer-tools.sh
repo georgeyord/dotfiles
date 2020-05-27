@@ -59,17 +59,6 @@ hash asciinema 2> /dev/null || brew install asciinema
 hash tunnelblick 2> /dev/null || brew cask install tunnelblick
 brew info openvpn || ( brew install openvpn && sudo brew services start openvpn )
 
-set +x
-
-git config --global core.editor "${EDITOR}"
-git config --global color.branch auto
-git config --global color.diff auto
-git config --global color.status auto
-git config --global core.autocrlf input
-#git config --global push.default simple
-
-set -x
-
 # Install NodeJS
 hash node 2> /dev/null || brew install node
 hash yarn 2> /dev/null || brew install yarn

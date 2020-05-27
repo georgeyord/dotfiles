@@ -170,7 +170,17 @@
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
-	tool = code --diff
+	tool = vscode
+
+# Comment: This is to unlock Visual Studio Code as your Git diff and Git merge tool
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+
+[diff]
+    tool = vscode
+
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 
 [push]
 

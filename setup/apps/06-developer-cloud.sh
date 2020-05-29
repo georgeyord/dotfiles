@@ -20,12 +20,20 @@ mkdir -p ~/.kube
 hash kops 2> /dev/null || brew install kops
 hash ctop 2> /dev/null || brew install ctop
 
+# Amazon AWS
 hash aws 2> /dev/null || ( \
   brew install awscli && \
   instruct "Run 'aws configure' and use the credentials from https://gitlab.com/Centech/centaur-tech/wikis/devops/kops/setup-kops-awscli"
 )
+hash mssh 2> /dev/null || pip install ec2instanceconnectcli
+
+# Google cloud
 hash gcloud 2> /dev/null || ( brew cask install google-cloud-sdk )
+
+# Digital ocean
 hash doctl 2> /dev/null || ( brew install doctl )
+
+# Terraform
 hash terraform 2> /dev/null || ( brew install terraform )
 
 hash kubectl-krew 2> /dev/null || ( \

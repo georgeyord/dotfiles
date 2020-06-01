@@ -74,6 +74,10 @@ hash popeye 2> /dev/null || ( brew tap derailed/popeye && brew install popeye )
 
 mkdir -p "$(helm home)/plugins"
 helm plugin list | grep "^env" >/dev/null 2>&1 || helm plugin install https://github.com/adamreese/helm-env
-helm plugin list | grep "^diff" >/dev/null 2>&1 || helm plugin install https://github.com/databus23/helm-diff --version master
+helm plugin list | grep "^diff" >/dev/null 2>&1 || (
+  helm plugin install https://github.com/databus23/helm-diff --version master
+  cd "$(helm home)/plugins/helm-diff"
+  make bootstrap build
+)
 
 set +x

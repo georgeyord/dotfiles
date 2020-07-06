@@ -43,6 +43,7 @@ hash zsh 2> /dev/null || (
 )
 # Fuzzy search
 hash fzf 2> /dev/null || ( brew install fzf && "$(brew --prefix)/opt/fzf/install" )
+hash autojump 2> /dev/null || brew install autojump
 
 hash ccze 2> /dev/null || brew install ccze
 hash watch 2> /dev/null || brew install watch

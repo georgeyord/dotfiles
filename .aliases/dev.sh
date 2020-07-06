@@ -204,3 +204,6 @@ function untilsuccess() {
 		sleep "${S:-1}"
 	done
 }
+
+# Broot for git: https://dystroy.org/blog/gg/
+alias gg="br --conf ~/.config/broot/git-diff-conf.toml --git-status"

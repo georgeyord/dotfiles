@@ -139,6 +139,7 @@ dkredis() {
   docker exec -it "$redisLabel" redis-cli
 }
 
+alias k='kubectl'
 alias kc='kubectl'
 alias kccl='kubectl -n centaur-logging'
 alias kccp='kubectl -n centaur-production'
@@ -191,3 +192,5 @@ aws_get_public_dns_from_private_dns() {
     --query 'Reservations[*].Instances[*].[PublicDnsName]' \
     --output text
 }
+
+alias h='helm'

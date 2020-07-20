@@ -53,6 +53,7 @@ kubectl krew install view-utilization
 
 # brew cask install minikube
 hash kubetail 2> /dev/null || ( brew tap johanhaleby/kubetail && brew install kubetail )
+# Tail multiple pods on Kubernetes
 # https://github.com/wercker/stern
 hash stern 2> /dev/null || ( brew install stern )
 # https://github.com/helm/helm
@@ -63,14 +64,19 @@ hash helm2 2> /dev/null || (
   ln -s /usr/local/opt/helm@2/bin/tiller /usr/local/bin/tiller
   ln -s /usr/local/bin/helm /usr/local/bin/helm3
 )
-# https://github.com/azure/draft
-hash draft 2> /dev/null || ( brew tap azure/draft && brew install azure/draft/draft )
+# Render helm charts to a directory
 # https://github.com/databus23/schelm
 hash schelm 2> /dev/null || go get -u github.com/databus23/schelm
+# K9s: htop for Kubernetes
 # https://github.com/derailed/k9s
 hash k9s 2> /dev/null || ( brew tap derailed/k9s && brew install k9s )
+# Popeye scans live Kubernetes cluster and reports potential issues with deployed resources and configurations
 # https://github.com/derailed/popeye
 hash popeye 2> /dev/null || ( brew tap derailed/popeye && brew install popeye )
+# kubectx: manage and switch between kubectl contexts
+# kubens: switch between Kubernetes namespaces
+# https://github.com/ahmetb/kubectx#installation
+hash kubectx 2> /dev/null || ( brew install kubectx )
 
 mkdir -p "$(helm home)/plugins"
 helm plugin list | grep "^env" >/dev/null 2>&1 || helm plugin install https://github.com/adamreese/helm-env

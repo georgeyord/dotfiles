@@ -29,6 +29,12 @@ brew cask install numi
 brew cask install KeyboardCleanTool
 #http://hasseg.org/icalBuddy/examples.html
 hash icalBuddy 2> /dev/null || brew install ical-buddy
+# f.lux makes your computer screen look like the room you're in, all the time.
+# https://justgetflux.com/
+is-installed-application "Flux" 2> /dev/null || brew cask install flux
+# Window switcher for your Mac
+# https://bahoom.com/hyperswitch
+is-installed-application "HyperSwitch" 2> /dev/null || brew cask install hyperswitch
 
 sudo gem install colorls
 sudo gem install lolcat

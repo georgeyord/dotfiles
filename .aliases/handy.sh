@@ -166,3 +166,9 @@ function weather-at() {
 
 	eval "${CMD}"
 }
+
+# Search with Fuzzy Finder
+# An efficient way of searching is using bashhub in combination with fzf. Put this in your .bashrc.
+function bhf {
+  eval $(bh | fzf)
+}

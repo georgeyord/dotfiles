@@ -6,3 +6,7 @@
 
 [ -f ${HOME}/.config/broot/launcher/bash/br ] && \
   . ${HOME}/.config/broot/launcher/bash/br
+
+### Bashhub.com Installation
+[ -f ~/.bashhub/bashhub.zsh ] && \
+  . ${HOME}/.bashhub/bashhub.zsh

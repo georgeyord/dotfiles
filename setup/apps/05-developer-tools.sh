@@ -57,6 +57,14 @@ hash postman 2> /dev/null || brew cask install postman
 hash meld 2> /dev/null || brew cask install meld
 hash asciinema 2> /dev/null || brew install asciinema
 
+# Bashhub saves every terminal command entered across all sessions and systems and provides powerful querying across all commands.
+# https://github.com/rcaloras/bashhub-client
+# You may need to run a docker container to connect:
+# https://github.com/nicksherron/bashhub-server
+hash bh 2> /dev/null || (
+  curl -OL https://bashhub.com/setup && zsh setup
+)
+
 hash tunnelblick 2> /dev/null || brew cask install tunnelblick
 brew info openvpn || ( brew install openvpn && sudo brew services start openvpn )
 

@@ -193,6 +193,9 @@
   name="George Yord"
   email="george.yord@gmail.com"
 
+[init]
+	templatedir="~/.git-templates"
+
 # URL shorthands
 
 [url "git@github.com:"]

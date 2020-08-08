@@ -1,0 +1,19 @@
+#!/bin/sh
+
+echo "Preparing commit message!"
+# echo "GIT_DIR=${GIT_DIR}"
+
+# COMMIT_MSG_FILE=$1
+# COMMIT_SOURCE=$2
+# SHA1=$3
+# GIT_MESSAGE_PATH="${GIT_DIR}/.git-message"
+
+# Only add custom message when there is no commit source
+# ($COMMIT_SOURCE is empty). Otherwise, keep the default message
+# proposed by Git. Possible commit source: message, template,
+# merge, squash or commit. See https://git-scm.com/docs/githooks
+# if [[ -z "$COMMIT_SOURCE" ]]; then
+#   if [ -f "${GIT_MESSAGE_PATH}" ]; then
+#     echo "Git message found: $(cat ${GIT_MESSAGE_PATH})"
+#   fi
+# fi

@@ -18,4 +18,8 @@ Thumbs.db
 .vscode
 .history
 
+# Allow *.TODO files in every repo
 *.TODO
+
+# Allow .git-message file in every repo
+.git-message

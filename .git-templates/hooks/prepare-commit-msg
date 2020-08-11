@@ -1,0 +1,37 @@
+#!/bin/sh
+
+echo "Preparing commit message!"
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+# echo "COMMIT_MSG_FILE=${COMMIT_MSG_FILE}"
+# echo "COMMIT_SOURCE=${COMMIT_SOURCE}"
+# echo "SHA1=${SHA1}"
+
+GIT_MESSAGE_PATH=".git-message"
+
+# Only add custom message when there is no commit source
+# ($COMMIT_SOURCE is empty). Otherwise, keep the default message
+# proposed by Git. Possible commit source: message, template,
+# merge, squash or commit. See https://git-scm.com/docs/githooks
+if [[ -z "$COMMIT_SOURCE" ]]; then
+  if [ ! -f "${GIT_MESSAGE_PATH}" ]; then
+    echo "Git message not found"
+
+    # Allows us to read user input below, assigns stdin to keyboard
+    exec < /dev/tty
+
+    # Get ticker number
+    read -p "Enter ticker number (or leave empty): " TICKER_NUMBER
+
+    if [ -n "${TICKER_NUMBER}" ]; then
+      echo "[${TICKER_NUMBER}] " > .git-message
+    fi
+  fi
+
+  if [ -f "${GIT_MESSAGE_PATH}" ]; then
+    GIT_MESSAGE="$(cat ${GIT_MESSAGE_PATH})"
+    echo "Git message found: '${GIT_MESSAGE}'"
+  fi
+fi

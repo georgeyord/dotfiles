@@ -36,6 +36,10 @@ hash doctl 2> /dev/null || ( brew install doctl )
 # Terraform
 hash terraform 2> /dev/null || ( brew install terraform )
 
+# ArgoCD cli
+# https://argoproj.github.io/argo-cd/cli_installation/
+hash argocd 2> /dev/null || brew install argocd
+
 hash kubectl-krew 2> /dev/null || ( \
   set -x; cd "$(mktemp -d)" &&
   curl -fsSLO "https://storage.googleapis.com/krew/v0.2.1/krew.{tar.gz,yaml}" &&

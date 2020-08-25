@@ -18,6 +18,9 @@ Thumbs.db
 .vscode
 .history
 
+# Allow custom env var loading
+.envs/
+
 # Allow *.TODO files in every repo
 *.TODO
 

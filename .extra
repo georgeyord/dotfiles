@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
 # Add custom commands
 
-DROPBOX_PATH="${DROPBOX_PATH:-/opt/Dropbox}"
+# Load the .env files
+for file in "${DROPBOX_PATH}/Dev/Private/envs"/*.env; do
+  echo "Env file found: $file"
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
+export DROPBOX_PATH="${DROPBOX_PATH:-/opt/Dropbox}"
 
 mkdir -p ~/.ssh
-cp -n /opt/Dropbox/Dev/Private/ssh_keys/lenses_devops/lenses_devops ~/.ssh/lenses_devops
+cp -n "${DROPBOX_PATH}/Dev/Private/ssh_keys/lenses_devops/lenses_devops" ~/.ssh/lenses_devops
 chmod 400 ~/.ssh/lenses_devops
 
 # Used in `kops` cli command

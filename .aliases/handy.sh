@@ -78,7 +78,8 @@ function tre() {
 
 function instruct() {
     echo -e "*** ${1}"
-    read -n 1 -s -r -p "Press any key to continue"
+		echo -e "\n\nPress Enter to continue..."
+    read -n 1
 }
 
 function is-running() {

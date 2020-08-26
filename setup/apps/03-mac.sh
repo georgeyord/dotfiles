@@ -90,4 +90,15 @@ open Grid\ Clock.saver
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize suspicious-package quicklookase qlvideo
 
+
+if [ ! is-installed-application "Touch Bar Piano" ]; then
+  instruct "Manually setup Touch Bar Piano
+
+  Setup Alfred:
+  - Open https://www.utsire.com/touch-bar-piano/
+  - Download
+  - Unzip
+  - Move to Applications folder
+  "
+fi
 set +x

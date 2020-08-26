@@ -88,7 +88,7 @@ function is-running() {
 }
 
 function is-installed-application() {
-	ls -lsa /Applications | grep $1 > /dev/null
+	ls -lsa /Applications | grep -i "${1}" > /dev/null
 }
 
 function run-once-in-background() {

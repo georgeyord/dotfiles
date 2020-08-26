@@ -3,7 +3,8 @@
 
 # Load the .env files
 for file in "${DROPBOX_PATH}/Dev/Private/envs"/*.env; do
-  echo "Env file found: $file"
+  # For debugging
+  # echo "Env file found: $file"
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;

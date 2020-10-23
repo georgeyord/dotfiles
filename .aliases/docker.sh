@@ -141,9 +141,6 @@ dkredis() {
 
 alias k='kubectl'
 alias kc='kubectl'
-alias kccl='kubectl -n centaur-logging'
-alias kccp='kubectl -n centaur-production'
-alias kccs='kubectl -n centaur-staging'
 alias kcks='kubectl -n kube-system'
 alias kcni='kubectl -n nginx-ingress'
 alias kccm='kubectl -n cert-manager'

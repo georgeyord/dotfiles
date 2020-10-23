@@ -23,7 +23,7 @@ hash ctop 2> /dev/null || brew install ctop
 # Amazon AWS
 hash aws 2> /dev/null || ( \
   brew install awscli && \
-  instruct "Run 'aws configure' and use the credentials from https://gitlab.com/Centech/centaur-tech/wikis/devops/kops/setup-kops-awscli"
+  instruct "Run 'aws configure'"
 )
 hash mssh 2> /dev/null || pip install ec2instanceconnectcli
 

@@ -29,8 +29,6 @@ alias grepnocomment='egrep -v "^\s*(#|$)"'
 alias timestamp='date +%s'
 
 alias opt="cd /opt"
-alias ct="cd /opt/codebase/centaur/centaur-tech"
-alias orch="cd /opt/codebase/centaur/centaur-tech/devops/kubernetes/helm/charts/orchestrator"
 
 alias wh="which"
 alias wtch="watch -d -n 15"

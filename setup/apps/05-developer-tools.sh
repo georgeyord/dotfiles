@@ -91,6 +91,11 @@ hash poetry 2> /dev/null || (
 # Install Raspberry Pi related
 brew cask install balenaetcher
 
+hash tldr 2> /dev/null || (
+  sudo wget -qO /usr/local/bin/tldr https://4e4.win/tldr
+  sudo chmod +x /usr/local/bin/tldr
+)
+
 # Install ag, a code-searching tool similar to ack, but faster: https://github.com/ggreer/the_silver_searcher
 # Usage: https://tldr.ostera.io/ag
 hash ag 2> /dev/null || brew install the_silver_searcher

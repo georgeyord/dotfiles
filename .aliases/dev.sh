@@ -21,6 +21,7 @@ alias gdc='git diff --cached'
 alias gl='git log'
 alias glb='git lb'
 alias gp='git push'
+alias gfp='git fetch -p'
 alias gpatch='git commit --amend --no-edit'
 alias gs='git st'
 alias gwhat='git whatchanged'
@@ -196,6 +197,18 @@ function whl() {
 	done
 }
 
+function whlfs() {
+	local path="${1}"
+	shift
+	while true; do
+		echo "Path to watch: ${path}"
+		# fswatch "${path}" | ($@)
+		date
+		sleep "${S:-1}"
+	done
+	# while true; do sleep 3 ;fswatch . | helm unittest .; done;
+}
+
 function untilsuccess() {
 	until $@; do
 		date
@@ -205,3 +218,7 @@ function untilsuccess() {
 
 # Broot for git: https://dystroy.org/blog/gg/
 alias gg="br --conf ~/.config/broot/git-diff-conf.toml --git-status"
+
+function git_owners() {
+	git ls-files ${1:-} | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+}

@@ -26,6 +26,7 @@
 
 	# Pull in remote changes for the current repository and all its submodules
 	p = !"git pull; git submodule foreach git pull origin master"
+	fp = "fetch -p"
 
 	# Clone a repository including all submodules
 	c = clone --recursive
@@ -46,6 +47,8 @@
 
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
+	amend-no-edit = commit -a --amend --no-edit
+	amend-push-force = !"!r() { git commit -a --amend --no-edit && git push -f }; r"
 
 	# Credit an author on the latest commit
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"

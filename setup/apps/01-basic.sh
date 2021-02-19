@@ -34,18 +34,24 @@ brew install git-extras
 brew install cask
 
 # Install dropbox
-brew cask install dropbox
+is-installed-application "Dropbox" 2> /dev/null || brew cask install dropbox
+
+# Install Synology sync tool, like Dropbox; see https://www.synology.com/en-global/support/download/DS920+#utilities
+is-installed-application "Synology Drive Client" 2> /dev/null || (
+  brew tap homebrew/cask-drivers
+  brew install synology-drive
+)
 
 # Install Google chrome
-brew cask install google-chrome
+is-installed-application "Google Chrome" || brew cask install google-chrome
 
 # Install Google chrome canaruy
-brew cask install google-chrome-canary
+is-installed-application "Google Chrome Canary" || brew cask install google-chrome-canary
 
 # Install Browser
-brew cask install brave-browser
+is-installed-application "Brave" || brew cask install brave-browser
 
 is-running "Dropbox" || instruct "Manually log-in to Dropbox"
-is-running "Dropbox" || instruct "Manually log-in to Chrome"
+is-running "Chrome" || instruct "Manually log-in to Chrome"
 
 set +x

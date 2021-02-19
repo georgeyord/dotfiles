@@ -34,7 +34,10 @@ hash gcloud 2> /dev/null || ( brew cask install google-cloud-sdk )
 hash doctl 2> /dev/null || ( brew install doctl )
 
 # Terraform
-hash terraform 2> /dev/null || ( brew install terraform )
+hash terraform 2> /dev/null || (
+  brew install terraform
+  brew install hashicorp/tap/terraform-ls
+)
 
 # ArgoCD cli
 # https://argoproj.github.io/argo-cd/cli_installation/

@@ -26,6 +26,9 @@ export WALLPAPER_2="${DROPBOX_PATH}/backgrounds/1151409-fields-wallpaper-2560x16
 
 export BH_URL="http://localhost:8080"
 
+# Set the default AWS profile to use
+export AWS_PROFILE=lenses-yord
+
 function iterm2_print_user_vars() {
   local KUBE_CONTEXT="$(kubectl config current-context)"
   local KUBE_NAMESPACE="$(kubectl config get-contexts --no-headers | grep '*' | awk '{print $5}')"

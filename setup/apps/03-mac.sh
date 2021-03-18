@@ -81,6 +81,9 @@ fi
 brew cask install xquartz
 brew install rdesktop
 
+# Install Authy MFA manager
+brew install authy
+
 # Install Grid clock wallpaper
 curl https://github.com/chrstphrknwtn/grid-clock/releases/download/0.0.4/Grid.Clock.0.0.4.saver.zip -o /tmp/Grid.Clock.0.0.4.saver.zip
 cd /tmp

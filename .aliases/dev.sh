@@ -197,18 +197,6 @@ function whl() {
 	done
 }
 
-function whlfs() {
-	local path="${1}"
-	shift
-	while true; do
-		echo "Path to watch: ${path}"
-		# fswatch "${path}" | ($@)
-		date
-		sleep "${S:-1}"
-	done
-	# while true; do sleep 3 ;fswatch . | helm unittest .; done;
-}
-
 function untilsuccess() {
 	until $@; do
 		date

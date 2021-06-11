@@ -137,4 +137,7 @@ hash cargo version 2> /dev/null || ( curl https://sh.rustup.rs -sSf | sh )
 # Bat like cat ;-)
 hash bat 2> /dev/null || brew install bat
 
+# watchexec is a simple, standalone tool that watches a path and runs a command whenever it detects modifications. - https://github.com/watchexec/watchexec
+hash watchexec 2> /dev/null || brew install watchexec
+
 set +x

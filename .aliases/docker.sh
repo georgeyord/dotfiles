@@ -107,6 +107,10 @@ dke() {
   docker exec -it "$1" /bin/sh
 }
 
+dksh() {
+  docker run -it --rm "$1" /bin/sh
+}
+
 dkexe() {
   docker exec -it "$1" "$2"
 }
@@ -129,15 +133,22 @@ dksb() {
   docker service scale "$1=$2"
 }
 
-dkmongo() {
+mongo_dk() {
   mongoLabel=$(docker ps | grep mongo | awk '{print $NF}')
   docker exec -it "$mongoLabel" mongo "$@"
 }
 
-dkredis() {
+redis_dk() {
   redisLabel=$(docker ps | grep redis | awk '{print $NF}')
   docker exec -it "$redisLabel" redis-cli
 }
+
+trans_dk() {
+  docker run -it --rm soimort/translate-shell $*
+}
+
+alias el2en='trans_dk el:en'
+alias en2el='trans_dk en:el'
 
 alias k='kubectl'
 alias kc='kubectl'

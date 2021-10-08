@@ -13,6 +13,9 @@ hash vlc 2> /dev/null || brew cask install vlc
 # Torrent client
 is-installed-application "Folx" || brew cask install folx
 
-hash youtube-dl 2> /dev/null || brew install youtube-dl
+hash youtube-dl 2> /dev/null || (
+  brew install ffmpeg &&
+  brew install youtube-dl
+)
 
 set +x

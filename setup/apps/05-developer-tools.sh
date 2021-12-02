@@ -58,6 +58,11 @@ hash meld 2> /dev/null || brew cask install meld
 hash asciinema 2> /dev/null || brew install asciinema
 # hash timeular 2> /dev/null || download-and-open https://timeular-desktop-packages.s3.amazonaws.com/mac/production/Timeular.dmg
 
+hash supervisorctl 2> /dev/null || (
+  brew install supervisor && \
+  brew services start supervisor
+)
+
 # Bashhub saves every terminal command entered across all sessions and systems and provides powerful querying across all commands.
 # https://github.com/rcaloras/bashhub-client
 # You may need to run a docker container to connect:
@@ -139,5 +144,10 @@ hash bat 2> /dev/null || brew install bat
 
 # watchexec is a simple, standalone tool that watches a path and runs a command whenever it detects modifications. - https://github.com/watchexec/watchexec
 hash watchexec 2> /dev/null || brew install watchexec
+
+hash hurl 2> /dev/null || (
+  brew tap jcamiel/hurl && \
+  brew install hurl
+)
 
 set +x

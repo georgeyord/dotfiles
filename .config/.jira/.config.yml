@@ -1,0 +1,32 @@
+board:
+  id: 50
+  name: OPS board
+  type: simple
+config: ""
+debug: false
+epic:
+  name: ""
+  link: ""
+installation: Cloud
+issue:
+  types:
+  - id: "10178"
+    name: Task
+    subtask: false
+  - id: "10179"
+    name: Epic
+    subtask: false
+  - id: "10180"
+    name: Subtask
+    subtask: true
+  - id: "10191"
+    name: Story
+    subtask: false
+  - id: "10198"
+    name: Bug
+    subtask: false
+login: george.papaefthimiou@lenses.io
+project:
+  key: OPS
+  type: next-gen
+server: https://landoop.atlassian.net

@@ -71,6 +71,7 @@ hash helm2 2> /dev/null || (
   ln -s /usr/local/opt/helm@2/bin/tiller /usr/local/bin/tiller
   ln -s /usr/local/bin/helm /usr/local/bin/helm3
 )
+hash yamllint 2> /dev/null || brew install yamllint
 # Render helm charts to a directory
 # https://github.com/databus23/schelm
 hash schelm 2> /dev/null || go get -u github.com/databus23/schelm

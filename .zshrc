@@ -42,8 +42,10 @@ POWERLEVEL9K_CUSTOM_KUBE_CONTEXT_BACKGROUND="navyblue"
 POWERLEVEL9K_CUSTOM_KUBE_CONTEXT_FOREGROUND="darkblue1"
 
 # Elements: anaconda aws aws_eb_env background_jobs newline disk_usage battery public_ip context user host custom command_execution_time dir docker_machine go_version history detect_virt icons_test ip vpn_ip laravel_version load node_version nvm nodeenv os_icon php_version ram rbenv chruby root_indicator rust_version rspec_stats rvm ssh status swap symfony2_tests symfony2_version time date todo vcs vi_mode virtualenv pyenv openfoam swift_version dir_writable kubecontext dropbox java_version powerlevel9k_setup powerlevel9k_teardown powerlevel9k_setup
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir newline status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time custom_kube_context vcs time ram)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir newline status)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time custom_kube_context vcs time ram)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs)
 
 # Backup 2019-08
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir custom_kube_context vcs openfoam newline status)

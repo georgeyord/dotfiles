@@ -23,6 +23,7 @@ Thumbs.db
 
 # Allow *.TODO files in every repo
 *.TODO
+*.TODO.*
 
 # Allow .git-message file in every repo
 .git-message

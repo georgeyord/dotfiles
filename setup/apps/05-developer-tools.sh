@@ -11,6 +11,8 @@ set -x
 hash git 2> /dev/null || brew install git
 # Github cli: https://github.com/cli/cli
 hash gh 2> /dev/null || brew install gh
+# Gitlint: https://jorisroovers.com/gitlint/
+hash gitlint 2> /dev/null || brew install gitlint
 
 hash java 2> /dev/null || (
   brew cask install java
@@ -84,8 +86,8 @@ hash python3 2> /dev/null || brew install python3
 hash pipenv 2> /dev/null || brew install pipenv
 hash pyenv 2> /dev/null || (
   brew install pyenv
-  pyenv install 3.7.7
-  pyenv global 3.7.7
+  pyenv install 3.9.10
+  pyenv global 3.9.10
   )
 hash poetry 2> /dev/null || (
     curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python

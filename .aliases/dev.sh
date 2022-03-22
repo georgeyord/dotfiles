@@ -26,6 +26,7 @@ alias gpatch='git commit --amend --no-edit'
 alias gs='git st'
 alias gwhat='git whatchanged'
 alias grepnocomment='egrep -v "^\s*(#|$)"'
+alias gitlint='/usr/local/bin/gitlint -C ~/.gitlint'
 
 alias timestamp='date +%s'
 

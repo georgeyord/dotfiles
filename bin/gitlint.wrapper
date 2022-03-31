@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# cp /usr/local/bin/gitlint /usr/local/bin/gitlint.orig
+# cd /usr/local/bin/
+# ln -s $HOME/bin/gitlint.wrapper ./gitlint
+
+/usr/local/bin/gitlint.orig -C ~/.gitlint $*

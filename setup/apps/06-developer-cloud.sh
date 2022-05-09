@@ -19,6 +19,7 @@ mkdir -p ~/.kube
 
 hash kops 2> /dev/null || brew install kops
 hash ctop 2> /dev/null || brew install ctop
+hash minikube 2> /dev/null || brew install minikube
 
 # Amazon AWS
 hash aws 2> /dev/null || ( \

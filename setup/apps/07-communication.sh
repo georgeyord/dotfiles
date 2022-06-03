@@ -3,10 +3,10 @@ set -e
 
 set -x
 
-brew cask install slack
-brew cask install viber
-brew cask install skype
-brew cask install zoomus
+brew install --cask slack
+brew install --cask viber
+brew install --cask skype
+brew install --cask zoomus
 brew install rocket-chat
 
 # if [ ! -d /Applications/Bitrix24.app ]; then

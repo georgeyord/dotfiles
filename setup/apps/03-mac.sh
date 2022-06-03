@@ -12,29 +12,29 @@ set -x
 sudo spctl --master-disable
 
 # Core casks
-brew cask install alfred
+brew install --cask alfred
 
-brew cask install flycut
+brew install --cask flycut
 defaults write com.generalarcade.flycut loadOnStartup -bool true
 
-brew cask install coconutbattery
+brew install --cask coconutbattery
 
-# brew cask install growl-fork
+# brew install --cask growl-fork
 brew install terminal-notifier
-brew cask install aerial
+brew install --cask aerial
 # Obsolete, now using bettertouchtool
-# brew cask install touchswitcher
-brew cask install bettertouchtool
-brew cask install numi
-brew cask install KeyboardCleanTool
+# brew install --cask touchswitcher
+brew install --cask bettertouchtool
+brew install --cask numi
+brew install --cask KeyboardCleanTool
 #http://hasseg.org/icalBuddy/examples.html
 hash icalBuddy 2> /dev/null || brew install ical-buddy
 # f.lux makes your computer screen look like the room you're in, all the time.
 # https://justgetflux.com/
-is-installed-application "Flux" 2> /dev/null || brew cask install flux
+is-installed-application "Flux" 2> /dev/null || brew install --cask flux
 # Window switcher for your Mac
 # https://bahoom.com/hyperswitch
-is-installed-application "HyperSwitch" 2> /dev/null || brew cask install hyperswitch
+is-installed-application "HyperSwitch" 2> /dev/null || brew install --cask hyperswitch
 
 sudo gem install colorls
 sudo gem install lolcat
@@ -50,7 +50,7 @@ if [ ! hash tomato 2> /dev/null ]; then
 "
 fi
 
-brew cask install itsycal
+brew install --cask itsycal
 defaults write com.mowglii.ItsycalApp HideIcon -bool false
 defaults write com.mowglii.ItsycalApp HighlightedDOWs -bool true
 defaults write com.mowglii.ItsycalApp ShowDayOfWeekInIcon -bool true
@@ -78,7 +78,7 @@ Setup Alfred:
 fi
 
 # For X11Requirement
-brew cask install xquartz
+brew install --cask xquartz
 brew install rdesktop
 
 # Install Authy MFA manager
@@ -91,7 +91,7 @@ unzip Grid.Clock.0.0.4.saver.zip
 open Grid\ Clock.saver
 
 # Install developer friendly quick look plugins; see https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize suspicious-package quicklookase qlvideo
+brew install --cask qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize suspicious-package quicklookase qlvideo
 
 if [ ! is-installed-application "Touch Bar Piano" ]; then
   instruct "Manually setup Touch Bar Piano

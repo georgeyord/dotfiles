@@ -8,13 +8,13 @@ source ../../.alias
 
 set -x
 
-hash docker 2> /dev/null 2> /dev/null || brew cask install docker
+hash docker 2> /dev/null 2> /dev/null || brew install --cask docker
 if [ -n "${DOCKER_MOUNTABLE_HOST_FOLDER}" ]; then
     defaults write com.docker.docker NSNavLastRootDirectory "${DOCKER_MOUNTABLE_HOST_FOLDER}"
 fi
 
 hash kubectl 2> /dev/null || brew install kubectl
-is-installed-application "Kube Forwarder" 2> /dev/null || brew cask install kube-forwarder
+is-installed-application "Kube Forwarder" 2> /dev/null || brew install --cask kube-forwarder
 mkdir -p ~/.kube
 
 hash kops 2> /dev/null || brew install kops
@@ -29,7 +29,7 @@ hash aws 2> /dev/null || ( \
 hash mssh 2> /dev/null || pip install ec2instanceconnectcli
 
 # Google cloud
-hash gcloud 2> /dev/null || ( brew cask install google-cloud-sdk )
+hash gcloud 2> /dev/null || ( brew install --cask google-cloud-sdk )
 
 # Digital ocean
 hash doctl 2> /dev/null || ( brew install doctl )
@@ -59,7 +59,7 @@ kubectl krew install resource-capacity
 kubectl krew install sniff
 kubectl krew install view-utilization
 
-# brew cask install minikube
+# brew install --cask minikube
 hash kubetail 2> /dev/null || ( brew tap johanhaleby/kubetail && brew install kubetail )
 # Tail multiple pods on Kubernetes
 # https://github.com/wercker/stern

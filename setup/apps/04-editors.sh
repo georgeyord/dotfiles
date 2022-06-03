@@ -9,12 +9,12 @@ source ../../.alias
 set -x
 
 hash code 2> /dev/null || (
-	brew cask install visual-studio-code && \
+	brew install --cask visual-studio-code && \
 	code --install-extension shan.code-settings-sync
 )
-hash subl 2> /dev/null || brew cask install sublime-text
-hash atom 2> /dev/null || brew cask install atom
+hash subl 2> /dev/null || brew install --cask sublime-text
+hash atom 2> /dev/null || brew install --cask atom
 
-brew cask install microsoft-office
+brew install --cask microsoft-office
 
 set +x

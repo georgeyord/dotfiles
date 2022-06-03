@@ -8,6 +8,6 @@ source ../../.alias
 
 set -x
 
-brew cask install sonic-pi
+brew install --cask sonic-pi
 
 set +x

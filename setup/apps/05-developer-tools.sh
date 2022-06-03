@@ -15,14 +15,14 @@ hash gh 2> /dev/null || brew install gh
 hash gitlint 2> /dev/null || brew install gitlint
 
 hash java 2> /dev/null || (
-  brew cask install java
-  brew cask install homebrew/cask-versions/adoptopenjdk8
+  brew install --cask java
+  brew install --cask homebrew/cask-versions/adoptopenjdk8
 )
 hash wget 2> /dev/null || brew install wget
 hash jq 2> /dev/null || brew install jq
 hash yq 2> /dev/null || brew install yq
-hash caffeinate 2> /dev/null || brew cask install caffeine
-which iterm2_set_user_var 2> /dev/null || brew cask install iterm2
+hash caffeinate 2> /dev/null || brew install --cask caffeine
+which iterm2_set_user_var 2> /dev/null || brew install --cask iterm2
 which imgcat 2> /dev/null || curl -fsSL https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
 hash zsh 2> /dev/null || (
   git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
@@ -38,7 +38,7 @@ hash zsh 2> /dev/null || (
   fi
 
   brew tap homebrew/cask-fonts
-  brew cask install font-hack-nerd-font
+  brew install --cask font-hack-nerd-font
 
   brew tap sambadevi/powerlevel9k
   brew install powerlevel9k
@@ -55,8 +55,8 @@ hash netcat 2> /dev/null || brew install netcat
 hash shellcheck 2> /dev/null || brew install shellcheck
 
 hash jfrog 2> /dev/null || brew install jfrog-cli
-hash postman 2> /dev/null || brew cask install postman
-hash meld 2> /dev/null || brew cask install meld
+hash postman 2> /dev/null || brew install --cask postman
+hash meld 2> /dev/null || brew install --cask meld
 hash asciinema 2> /dev/null || brew install asciinema
 # hash timeular 2> /dev/null || download-and-open https://timeular-desktop-packages.s3.amazonaws.com/mac/production/Timeular.dmg
 
@@ -73,7 +73,7 @@ hash bh 2> /dev/null || (
   curl -OL https://bashhub.com/setup && zsh setup
 )
 
-hash tunnelblick 2> /dev/null || brew cask install tunnelblick
+hash tunnelblick 2> /dev/null || brew install --cask tunnelblick
 brew info openvpn || ( brew install openvpn && sudo brew services start openvpn )
 
 # Install NodeJS
@@ -96,7 +96,7 @@ hash poetry 2> /dev/null || (
   )
 
 # Install Raspberry Pi related
-brew cask install balenaetcher
+brew install --cask balenaetcher
 
 hash tldr 2> /dev/null || (
   sudo wget -qO /usr/local/bin/tldr https://4e4.win/tldr

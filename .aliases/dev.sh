@@ -211,3 +211,8 @@ alias gg="br --conf ~/.config/broot/git-diff-conf.toml --git-status"
 function git_owners() {
 	git ls-files ${1:-} | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
 }
+
+function random_password() {
+	local len="${1:-20}"
+	date +%s | sha256sum | base64 | head -c "${len}"; echo
+}

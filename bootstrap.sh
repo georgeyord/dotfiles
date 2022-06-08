@@ -3,7 +3,8 @@
 cd "$(dirname "${BASH_SOURCE}")";
 
 function doIt() {
-	rsync --exclude ".git/" \
+	rsync \
+		--exclude ".git/" \
 		--exclude "*.TODO" \
 		--exclude ".history" \
 		--exclude ".DS_Store" \

@@ -4,9 +4,9 @@
 export DROPBOX_PATH="${DROPBOX_PATH:-/opt/Dropbox}"
 
 # Load the .env files from repo
-for file in "$HOME/.envs"/*.env; do
+for file in "$HOME/.env"/*.env; do
   # For debugging
-  # echo "Env file found: $file"
+  # echo "Env file to load: $file"
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
@@ -14,7 +14,7 @@ unset file;
 # Load the .env files from private path
 for file in "${DROPBOX_PATH}/Dev/Private/envs"/*.env; do
   # For debugging
-  # echo "Env file found: $file"
+  # echo "Private env file to load: $file"
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;

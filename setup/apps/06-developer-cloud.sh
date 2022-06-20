@@ -18,8 +18,12 @@ is-installed-application "Kube Forwarder" 2> /dev/null || brew install --cask ku
 mkdir -p ~/.kube
 
 hash kops 2> /dev/null || brew install kops
-hash ctop 2> /dev/null || brew install ctop
+hash oc 2> /dev/null || brew install openshift-cli
+
 hash minikube 2> /dev/null || brew install minikube
+hash kind 2> /dev/null || brew install kind
+
+hash ctop 2> /dev/null || brew install ctop
 
 # Amazon AWS
 hash aws 2> /dev/null || ( \

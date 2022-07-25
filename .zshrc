@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Enable zprof profiling: uncomment next line, reload, run `zprof` to get profiling information
+# zmodload zsh/zprof
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -25,7 +28,7 @@ POWERLEVEL9K_SHORTEN_STRATEGY=truncate_from_right
 # vcs
 # Reference: https://github.com/bhilburn/powerlevel9k#vcs-symbols
 POWERLEVEL9K_SHOW_CHANGESET=true
-POWERLEVEL9K_CHANGESET_HASH_LENGTH=3
+POWERLEVEL9K_CHANGESET_HASH_LENGTH=6
 
 # command_execution_time
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
@@ -45,7 +48,9 @@ POWERLEVEL9K_CUSTOM_KUBE_CONTEXT_FOREGROUND="darkblue1"
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir newline status)
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time custom_kube_context vcs time ram)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir status)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time vcs)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=()
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 
 # Backup 2019-08
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir custom_kube_context vcs openfoam newline status)

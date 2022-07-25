@@ -173,3 +173,21 @@ function weather-at() {
 function bhf {
   eval $(bh | fzf)
 }
+
+# Measure the time it takes for zsh to load up, and do it 10 times to get more nrmalised resutls
+# reference: https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load/#how-to-test-your-shell-load-time
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+# https://blog.mattclemente.com/2020/06/26/oh-my-zsh-slow-to-load/
+# Measure each plugin duration separately
+# Edit: ~/.oh-my-zsh/oh-my-zsh.sh
+# for plugin ($plugins); do
+#   timer=$(($(gdate +%s%N)/1000000))
+#   EXISTING CODE
+#   now=$(($(gdate +%s%N)/1000000))
+#   elapsed=$(($now-$timer))
+#   echo $elapsed":" $plugin
+# done

@@ -41,7 +41,7 @@ export GPG_TTY=$(tty);
 COMPUTER_NAME="${COMPUTER_NAME:-yord-mac}"
 DROPBOX_PATH="${DROPBOX_PATH:-/opt/Dropbox}"
 
-WALLPAPER_IMAGE="${DROPBOX_PATH}/backgrounds/927332-grain-wallpaper-for-meizu.jpg"
+export WALLPAPER_IMAGE="${DROPBOX_PATH}/backgrounds/927332-grain-wallpaper-for-meizu.jpg"
 
 # Used in ./setup/directories/ssh.sh
 export SSH_KEYS_PATH="${DROPBOX_PATH}/Dev/Private/ssh_keys/aio/"
@@ -56,56 +56,57 @@ export PLISTS_BACKUP_PATH="/opt/codebase/georgeyord/mathiasdotfiles/plists"
 
 ### SET TOUCHBAR FUNCTION LABELS PER APPLICATION ###
 
-if [ -f ~/.iterm2/it2setkeylabel ]; then
-  export ITERM2_KEYLABEL_DEFAULT="default"
-  ~/.iterm2/it2setkeylabel set F1 "F1"
-  ~/.iterm2/it2setkeylabel set F2 "F2"
-  ~/.iterm2/it2setkeylabel set F3 "F3"
-  ~/.iterm2/it2setkeylabel set F4 "F4"
-  ~/.iterm2/it2setkeylabel set F5 "F5"
-  ~/.iterm2/it2setkeylabel set F6 "F6"
-  ~/.iterm2/it2setkeylabel set F7 "F7"
-  ~/.iterm2/it2setkeylabel set F8 "F8"
-  ~/.iterm2/it2setkeylabel set F9 "F9"
-  ~/.iterm2/it2setkeylabel set F10 "10"
-  ~/.iterm2/it2setkeylabel set F11 "11"
-  ~/.iterm2/it2setkeylabel set F13 "13"
-  ~/.iterm2/it2setkeylabel set F14 "14"
-  ~/.iterm2/it2setkeylabel set F15 "15"
-  ~/.iterm2/it2setkeylabel set F16 "16"
-  ~/.iterm2/it2setkeylabel set F17 "17"
-  ~/.iterm2/it2setkeylabel push "${ITERM2_KEYLABEL_DEFAULT}"
+# if [ -f ~/.iterm2/it2setkeylabel ]; then
+#   export ITERM2_KEYLABEL_DEFAULT="default"
+#   ~/.iterm2/it2setkeylabel set F1 "F1"
+#   ~/.iterm2/it2setkeylabel set F2 "F2"
+#   ~/.iterm2/it2setkeylabel set F3 "F3"
+#   ~/.iterm2/it2setkeylabel set F4 "F4"
+#   ~/.iterm2/it2setkeylabel set F5 "F5"
+#   ~/.iterm2/it2setkeylabel set F6 "F6"
+#   ~/.iterm2/it2setkeylabel set F7 "F7"
+#   ~/.iterm2/it2setkeylabel set F8 "F8"
+#   ~/.iterm2/it2setkeylabel set F9 "F9"
+#   ~/.iterm2/it2setkeylabel set F10 "10"
+#   ~/.iterm2/it2setkeylabel set F11 "11"
+#   ~/.iterm2/it2setkeylabel set F13 "13"
+#   ~/.iterm2/it2setkeylabel set F14 "14"
+#   ~/.iterm2/it2setkeylabel set F15 "15"
+#   ~/.iterm2/it2setkeylabel set F16 "16"
+#   ~/.iterm2/it2setkeylabel set F17 "17"
+#   ~/.iterm2/it2setkeylabel push "${ITERM2_KEYLABEL_DEFAULT}"
 
-  export ITERM2_KEYLABEL_BYOBU="byobu"
-  ~/.iterm2/it2setkeylabel set F1 "F1"
-  ~/.iterm2/it2setkeylabel set F2 "New"
-  ~/.iterm2/it2setkeylabel set F3 "<-"
-  ~/.iterm2/it2setkeylabel set F4 "->"
-  ~/.iterm2/it2setkeylabel set F5 "F5"
-  ~/.iterm2/it2setkeylabel set F6 "F6"
-  ~/.iterm2/it2setkeylabel set F7 "Scrollback"
-  ~/.iterm2/it2setkeylabel set F8 "Rename"
-  ~/.iterm2/it2setkeylabel set F9 "Menu"
-  ~/.iterm2/it2setkeylabel set F10 "10"
-  ~/.iterm2/it2setkeylabel set F11 "11"
-  ~/.iterm2/it2setkeylabel set F13 "13"
-  ~/.iterm2/it2setkeylabel set F14 "14"
-  ~/.iterm2/it2setkeylabel set F15 "15"
-  ~/.iterm2/it2setkeylabel set F16 "16"
-  ~/.iterm2/it2setkeylabel set F17 "17"
-  ~/.iterm2/it2setkeylabel push "${ITERM2_KEYLABEL_BYOBU}"
-fi
+#   export ITERM2_KEYLABEL_BYOBU="byobu"
+#   ~/.iterm2/it2setkeylabel set F1 "F1"
+#   ~/.iterm2/it2setkeylabel set F2 "New"
+#   ~/.iterm2/it2setkeylabel set F3 "<-"
+#   ~/.iterm2/it2setkeylabel set F4 "->"
+#   ~/.iterm2/it2setkeylabel set F5 "F5"
+#   ~/.iterm2/it2setkeylabel set F6 "F6"
+#   ~/.iterm2/it2setkeylabel set F7 "Scrollback"
+#   ~/.iterm2/it2setkeylabel set F8 "Rename"
+#   ~/.iterm2/it2setkeylabel set F9 "Menu"
+#   ~/.iterm2/it2setkeylabel set F10 "10"
+#   ~/.iterm2/it2setkeylabel set F11 "11"
+#   ~/.iterm2/it2setkeylabel set F13 "13"
+#   ~/.iterm2/it2setkeylabel set F14 "14"
+#   ~/.iterm2/it2setkeylabel set F15 "15"
+#   ~/.iterm2/it2setkeylabel set F16 "16"
+#   ~/.iterm2/it2setkeylabel set F17 "17"
+#   ~/.iterm2/it2setkeylabel push "${ITERM2_KEYLABEL_BYOBU}"
+# fi
 
 # Bat like cat ;-)
 export BAT_CONFIG_PATH="$HOME/.bat.conf"
 
 # Go development
-test -f /usr/local/bin/go 2> /dev/null && (
-  export GOPATH="${HOME}/go"
-  export GOBIN="$(go env GOPATH)/bin"
-  export GOROOT="$(brew --prefix golang)/libexec"
-) || echo >&2 "Go lang not found"
+# hash /usr/local/bin/go 2> /dev/null && \
+# test -f /usr/local/bin/go 2> /dev/null && (
+#   export GOPATH="${HOME}/go"
+#   export GOBIN="$(go env GOPATH)/bin"
+#   export GOROOT="$(brew --prefix golang)/libexec"
+# ) || echo >&2 "Go lang not found"
 
-test -f /usr/local/bin/pyenv 2> /dev/null && (
-  export PYENV_ROOT="$HOME/.pyenv"
-) || echo >&2 "Pyenv not found"
+# hash /usr/local/bin/pyenv 2> /dev/null && (
+#   export PYENV_ROOT="$HOME/.pyenv"
+# ) || echo >&2 "Pyenv not found"

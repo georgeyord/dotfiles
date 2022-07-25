@@ -1,8 +1,8 @@
 #!/bin/bash
 
-hash pyenv 2> /dev/null && \
-  eval "$(pyenv init -)" || \
-  echo >&2 "Python's pyenv not found"
+# hash pyenv 2> /dev/null && \
+#   eval "$(pyenv init -)" || \
+#   echo >&2 "Python's pyenv not found"
 
 hash gh 2> /dev/null && \
   eval "$(gh completion --shell zsh)" || \

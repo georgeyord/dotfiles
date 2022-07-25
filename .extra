@@ -24,8 +24,8 @@ export WALLPAPER_1="${DROPBOX_PATH}/backgrounds/1151480-gorgerous-fields-wallpap
 export WALLPAPER_2="${DROPBOX_PATH}/backgrounds/1151409-fields-wallpaper-2560x1600-for-phones.jpg"
 export BH_URL="http://localhost:8080"
 
-function iterm2_print_user_vars() {
-  local KUBE_CONTEXT="$(kubectl config current-context)"
-  local KUBE_NAMESPACE="$(kubectl config get-contexts --no-headers | grep '*' | awk '{print $5}')"
-  iterm2_set_user_var kbContext "${KUBE_CONTEXT}/${KUBE_NAMESPACE}"
-}
+# function iterm2_print_user_vars() {
+#   local KUBE_CONTEXT="$(kubectl config current-context)"
+#   local KUBE_NAMESPACE="$(kubectl config get-contexts --no-headers | grep '*' | awk '{print $5}')"
+#   iterm2_set_user_var kbContext "${KUBE_CONTEXT}/${KUBE_NAMESPACE}"
+# }

@@ -7,6 +7,7 @@ brew install --cask slack
 brew install --cask viber
 brew install --cask skype
 brew install --cask zoomus
+brew install telegram
 brew install rocket-chat
 
 # if [ ! -d /Applications/Bitrix24.app ]; then

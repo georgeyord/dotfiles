@@ -32,7 +32,7 @@ alias timestamp='date +%s'
 
 alias opt="cd /opt"
 
-alias wh="which"
+# alias wh="which" # not used
 alias wtch="watch -d -n 15"
 
 alias prp="pipenv run python"

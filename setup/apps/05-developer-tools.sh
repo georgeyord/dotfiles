@@ -43,6 +43,7 @@ hash zsh 2> /dev/null || (
   brew tap sambadevi/powerlevel9k
   brew install powerlevel9k
 )
+
 # Fuzzy search
 hash fzf 2> /dev/null || ( brew install fzf && "$(brew --prefix)/opt/fzf/install" )
 hash autojump 2> /dev/null || brew install autojump
@@ -139,6 +140,15 @@ hash kafka-topics 2> /dev/null || ( brew install kafka)
 
 # Install Rust language
 hash cargo version 2> /dev/null || ( curl https://sh.rustup.rs -sSf | sh )
+
+# Install bats a bash testing framework: https://bats-core.readthedocs.io/
+hash bats 2> /dev/null || (
+  brew tap kaos/shell
+  brew install  bats-core \
+                bats-support \
+                bats-assert \
+                bats-file
+)
 
 # Install bat: A cat(1) clone with wings - https://github.com/sharkdp/bat
 # Bat like cat ;-)

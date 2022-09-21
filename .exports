@@ -96,6 +96,8 @@ export PLISTS_BACKUP_PATH="/opt/codebase/georgeyord/mathiasdotfiles/plists"
 #   ~/.iterm2/it2setkeylabel push "${ITERM2_KEYLABEL_BYOBU}"
 # fi
 
+export BATS_LIB_PATH="${BREW_PREFIX}/lib"
+
 # Bat like cat ;-)
 export BAT_CONFIG_PATH="$HOME/.bat.conf"
 

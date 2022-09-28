@@ -25,6 +25,10 @@ hash kind 2> /dev/null || brew install kind
 
 hash ctop 2> /dev/null || brew install ctop
 
+# Dive: tool for exploring a docker image, layer contents, and discovering ways to shrink the size
+# https://github.com/wagoodman/dive
+hash dive 2> /dev/null || brew install dive
+
 # Amazon AWS
 hash aws 2> /dev/null || ( \
   brew install awscli && \

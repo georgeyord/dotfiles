@@ -43,13 +43,12 @@ is-installed-application "Synology Drive Client" 2> /dev/null || (
   brew install synology-drive
 )
 
-# Install Google chrome
+# Install all Google chrome flavors (stable, canary, beta)
 is-installed-application "Google Chrome" || brew install --cask google-chrome
-
-# Install Google chrome canaruy
 is-installed-application "Google Chrome Canary" || brew install --cask google-chrome-canary
+is-installed-application "Google Chrome Beta" || brew install --cask google-chrome-beta
 
-# Install Browser
+# Install Brave browser
 is-installed-application "Brave" || brew install --cask brave-browser
 
 is-running "Dropbox" || instruct "Manually log-in to Dropbox"

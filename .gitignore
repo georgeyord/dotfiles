@@ -1,3 +1,11 @@
+# Global .gitignore file, will be merged with the .gitignore file(s) of the repo
+# Usage:
+#  - ignore OS related files like .DS_Store for MacOS
+#  - ignore files of specific patterm (example, TODO files) without amending the repo's .gitignore
+# To activate it:
+#  - move this file to ~/.gitignore
+#  - run the following command: `git config --global core.excludesfile ~/.gitignore`
+
 # Compiled Python files
 *.pyc
 

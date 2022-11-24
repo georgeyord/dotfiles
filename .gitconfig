@@ -202,6 +202,7 @@
 
 [init]
 	templatedir="~/.git-templates"
+	defaultBranch = main
 
 # URL shorthands
 

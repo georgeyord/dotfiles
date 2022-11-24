@@ -29,3 +29,9 @@ export BH_URL="http://localhost:8080"
 #   local KUBE_NAMESPACE="$(kubectl config get-contexts --no-headers | grep '*' | awk '{print $5}')"
 #   iterm2_set_user_var kbContext "${KUBE_CONTEXT}/${KUBE_NAMESPACE}"
 # }
+
+# Inititalize direnv tool if available: https://direnv.net/
+# https://direnv.net/man/direnv-stdlib.1.html
+hash direnv 2> /dev/null \
+  && eval "$(direnv hook zsh)" \
+  || echo >&2 "direnv not found ($0)"

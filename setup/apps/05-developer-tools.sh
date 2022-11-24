@@ -160,6 +160,14 @@ hash watchexec 2> /dev/null || brew install watchexec
 # A Git GUI that offers a visual representation of your repositories: https://www.sourcetreeapp.com/
 is-installed-application "Sourcetree" || brew install --cask sourcetree
 
+# direnv can load and unload environment variables depending on the current directory
+# https://direnv.net/
+# Also provides a list of additional features:
+# https://direnv.net/man/direnv-stdlib.1.html
+hash direnv 2> /dev/null || (
+  brew install direnv
+)
+
 hash hurl 2> /dev/null || (
   brew tap jcamiel/hurl && \
   brew install hurl

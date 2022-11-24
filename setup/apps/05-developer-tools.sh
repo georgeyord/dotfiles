@@ -157,6 +157,9 @@ hash bat 2> /dev/null || brew install bat
 # watchexec is a simple, standalone tool that watches a path and runs a command whenever it detects modifications. - https://github.com/watchexec/watchexec
 hash watchexec 2> /dev/null || brew install watchexec
 
+# A Git GUI that offers a visual representation of your repositories: https://www.sourcetreeapp.com/
+is-installed-application "Sourcetree" || brew install --cask sourcetree
+
 hash hurl 2> /dev/null || (
   brew tap jcamiel/hurl && \
   brew install hurl

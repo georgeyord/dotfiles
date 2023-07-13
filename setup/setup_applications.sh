@@ -7,6 +7,7 @@ source ../.alias
 
 function runApply() {
     echo -e "*** Applying '$(basename ${1})'..."
+    read -n 1 -s -r -p "Press any key to continue"
     source ${1}
 }
 

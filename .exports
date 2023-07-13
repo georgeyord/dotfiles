@@ -39,14 +39,16 @@ export GPG_TTY=$(tty);
 
 # Used in ./.macos
 COMPUTER_NAME="${COMPUTER_NAME:-yord-mac}"
-DROPBOX_PATH="${DROPBOX_PATH:-/opt/Dropbox}"
+SYNCED_PATH="${SYNCED_PATH:-/Users/g.papaeythimiou/SynologyYord}"
 
-export WALLPAPER_IMAGE="${DROPBOX_PATH}/backgrounds/927332-grain-wallpaper-for-meizu.jpg"
+export WALLPAPER_PATH="${WALLPAPER_PATH:-/Users/g.papaeythimiou/SynologyShared/backgrounds}"
+export WALLPAPER_IMAGE="${WALLPAPER_PATH}/927332-grain-wallpaper-for-meizu.jpg"
 
 # Used in ./setup/directories/ssh.sh
-export SSH_KEYS_PATH="${DROPBOX_PATH}/Dev/Private/ssh_keys/aio/"
-export SSH_WORK_KEYS_PATH="${DROPBOX_PATH}/Dev/Private/ssh_keys/lenses_devops/"
-export HISTORY_PATH="${DROPBOX_PATH}/Dev/Private/zsh_history"
+export SSH_KEYS_PATH="${SYNCED_PATH}/private/ssh/keys/aio/"
+export SSH_KEYS_CONFIG="${SYNCED_PATH}/private/ssh/configs/main"
+# export SSH_WORK_KEYS_PATH="${SYNCED_PATH}/private/ssh/keys/lenses_devops/"
+export HISTORY_PATH="${SYNCED_PATH}/private/zsh_history"
 
 # Used in ./setup/apps/07-docker.sh
 export DOCKER_MOUNTABLE_HOST_FOLDER="/opt/codebase"

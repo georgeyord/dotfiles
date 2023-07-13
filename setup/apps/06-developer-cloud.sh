@@ -34,7 +34,7 @@ hash aws 2> /dev/null || ( \
   brew install awscli && \
   instruct "Run 'aws configure'"
 )
-hash mssh 2> /dev/null || pip install ec2instanceconnectcli
+# hash mssh 2> /dev/null || pip install ec2instanceconnectcli
 
 # Google cloud
 hash gcloud 2> /dev/null || ( brew install --cask google-cloud-sdk )
@@ -54,10 +54,12 @@ hash argocd 2> /dev/null || brew install argocd
 
 hash kubectl-krew 2> /dev/null || ( \
   set -x; cd "$(mktemp -d)" &&
-  curl -fsSLO "https://storage.googleapis.com/krew/v0.2.1/krew.{tar.gz,yaml}" &&
-  tar zxvf krew.tar.gz &&
-  ./krew-"$(uname | tr '[:upper:]' '[:lower:]')_amd64" install \
-    --manifest=krew.yaml --archive=krew.tar.gz
+  OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+  ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+  KREW="krew-${OS}_${ARCH}" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/${KREW}.tar.gz" &&
+  tar zxvf "${KREW}.tar.gz" &&
+  ./"${KREW}" install krew
 )
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 kubectl krew install exec-as
@@ -102,5 +104,8 @@ helm plugin list | grep "^diff" >/dev/null 2>&1 || (
   cd "$(helm home)/plugins/helm-diff"
   make bootstrap build
 )
+
+# Remove outdated versions from the cellar.
+brew cleanup
 
 set +x

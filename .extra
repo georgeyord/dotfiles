@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Add custom commands
 
-export DROPBOX_PATH="${DROPBOX_PATH:-/opt/Dropbox}"
+# SYNCED_PATH -s ex DROPBOX_PATH
+export SYNCED_PATH="/Users/g.papaeythimiou/SynologyYord"
 
 # Load the .env files from repo
 for file in "$HOME/.env"/*.env; do
@@ -12,16 +13,16 @@ done;
 unset file;
 
 # Load the .env files from private path
-for file in "${DROPBOX_PATH}/Dev/Private/envs"/*.env; do
+for file in "${SYNCED_PATH}/private/envs"/*.env; do
   # For debugging
   # echo "Private env file to load: $file"
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
 
-export WALLPAPER="${DROPBOX_PATH}/backgrounds/927393-amazing-grain-wallpaper-2880x1800-ipad-pro.jpg"
-export WALLPAPER_1="${DROPBOX_PATH}/backgrounds/1151480-gorgerous-fields-wallpaper-1920x1200-for-android-50.jpg"
-export WALLPAPER_2="${DROPBOX_PATH}/backgrounds/1151409-fields-wallpaper-2560x1600-for-phones.jpg"
+export WALLPAPER="${WALLPAPER_PATH}/927393-amazing-grain-wallpaper-2880x1800-ipad-pro.jpg"
+export WALLPAPER_1="${WALLPAPER_PATH}/1151480-gorgerous-fields-wallpaper-1920x1200-for-android-50.jpg"
+export WALLPAPER_2="${WALLPAPER_PATH}/1151409-fields-wallpaper-2560x1600-for-phones.jpg"
 export BH_URL="http://localhost:8080"
 
 # function iterm2_print_user_vars() {

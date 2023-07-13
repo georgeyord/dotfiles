@@ -162,9 +162,9 @@ function getcertnames() {
 	fi;
 }
 
-function clr() {
-	$@ | ccze
-}
+# function clr() {
+# 	$@ | ccze
+# }
 
 function backup-plists() {
 	if [ -n "${PLISTS_BACKUP_PATH}" ]; then

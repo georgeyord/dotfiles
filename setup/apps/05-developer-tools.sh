@@ -48,7 +48,7 @@ hash zsh 2> /dev/null || (
 hash fzf 2> /dev/null || ( brew install fzf && "$(brew --prefix)/opt/fzf/install" )
 hash autojump 2> /dev/null || brew install autojump
 
-hash ccze 2> /dev/null || brew install ccze
+# hash ccze 2> /dev/null || brew install ccze
 hash watch 2> /dev/null || brew install watch
 hash envsubst 2> /dev/null || ( brew install gettext && brew link --force gettext)
 hash socat 2> /dev/null || brew install socat
@@ -90,14 +90,12 @@ hash pyenv 2> /dev/null || (
   pyenv install 3.9.10
   pyenv global 3.9.10
   )
-hash poetry 2> /dev/null || (
-    curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
-    mkdir -p $ZSH/plugins/poetry
-    poetry completions zsh > $ZSH/plugins/poetry/_poetry
-  )
 
-# Install Raspberry Pi related
-brew install --cask balenaetcher
+# hash poetry 2> /dev/null || (
+#     curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+#     mkdir -p $ZSH/plugins/poetry
+#     poetry completions zsh > $ZSH/plugins/poetry/_poetry
+#   )
 
 hash tldr 2> /dev/null || (
   sudo wget -qO /usr/local/bin/tldr https://4e4.win/tldr
@@ -109,15 +107,15 @@ hash tldr 2> /dev/null || (
 hash ag 2> /dev/null || brew install the_silver_searcher
 
 # Install Go lang
-hash go 2> /dev/null || (
-	brew install go
-	export GOBIN="$(go env GOPATH)/bin"
-	export GOROOT="$(brew --prefix golang)/libexec"
-)
+# hash go 2> /dev/null || (
+# 	brew install go
+# 	export GOBIN="$(go env GOPATH)/bin"
+# 	export GOROOT="$(brew --prefix golang)/libexec"
+# )
 
-hash gotop 2> /dev/null || ( brew tap cjbassi/gotop && brew install gotop)
-# hash dlv 2> /dev/null || ( go get -u github.com/go-delve/delve/cmd/dlv )
-hash gotest 2> /dev/null || ( go get -u github.com/rakyll/gotest )
+# hash gotop 2> /dev/null || ( brew tap cjbassi/gotop && brew install gotop)
+# # hash dlv 2> /dev/null || ( go get -u github.com/go-delve/delve/cmd/dlv )
+# hash gotest 2> /dev/null || ( go get -u github.com/rakyll/gotest )
 
 # Install ruby-build and rbenv
 # brew install ruby-build
@@ -158,7 +156,7 @@ hash bat 2> /dev/null || brew install bat
 hash watchexec 2> /dev/null || brew install watchexec
 
 # A Git GUI that offers a visual representation of your repositories: https://www.sourcetreeapp.com/
-is-installed-application "Sourcetree" || brew install --cask sourcetree
+# is-installed-applica1tion "Sourcetree" || brew install --cask sourcetree
 
 # direnv can load and unload environment variables depending on the current directory
 # https://direnv.net/
@@ -168,9 +166,12 @@ hash direnv 2> /dev/null || (
   brew install direnv
 )
 
-hash hurl 2> /dev/null || (
-  brew tap jcamiel/hurl && \
-  brew install hurl
-)
+# hash hurl 2> /dev/null || (
+#   brew tap jcamiel/hurl && \
+#   brew install hurl
+# )
+
+# Remove outdated versions from the cellar.
+brew cleanup
 
 set +x

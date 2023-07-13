@@ -15,6 +15,9 @@ hash code 2> /dev/null || (
 hash subl 2> /dev/null || brew install --cask sublime-text
 hash atom 2> /dev/null || brew install --cask atom
 
-brew install --cask microsoft-office
+# brew install --cask microsoft-office
+
+# Remove outdated versions from the cellar.
+brew cleanup
 
 set +x

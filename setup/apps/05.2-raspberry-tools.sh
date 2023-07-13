@@ -8,6 +8,9 @@ source ../../.alias
 
 set -x
 
+# Install Raspberry Pi related
+brew install --cask balenaetcher
+
 brew install --cask sonic-pi
 
 set +x

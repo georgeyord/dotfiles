@@ -5,3 +5,11 @@
 /opt/codebase/others/zsh-git-prompt,https://github.com/olivierverdier/zsh-git-prompt
 /opt/codebase/others/powerlevel9k,https://github.com/bhilburn/powerlevel9k.git
 /opt/codebase/others/iterm-dracula,https://github.com/dracula/iterm.git
+/opt/codebase/lenses/lenses-helm-charts,https://github.com/lensesio-dev/lenses-helm-charts.git
+/opt/codebase/lenses/jenkinsjobs,https://github.com/lensesio-dev/jenkinsjobs.git
+/opt/codebase/celonis/cfg-ibc,https://github.com/celonis/cfg-ibc.git
+/opt/codebase/celonis/tf-datadog,https://github.com/celonis/tf-datadog.git
+/opt/codebase/celonis/tf-backstage,https://github.com/celonis/tf-backstage.git
+/opt/codebase/celonis/backstage,https://github.com/celonis/backstage.git
+/opt/codebase/celonis/backstage-resources,https://github.com/celonis/backstage-resources.git
+/opt/codebase/celonis/backstage-plugins,https://github.com/celonis/backstage-plugins.git

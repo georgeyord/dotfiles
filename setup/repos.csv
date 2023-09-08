@@ -13,3 +13,6 @@
 /opt/codebase/celonis/backstage,https://github.com/celonis/backstage.git
 /opt/codebase/celonis/backstage-resources,https://github.com/celonis/backstage-resources.git
 /opt/codebase/celonis/backstage-plugins,https://github.com/celonis/backstage-plugins.git
+/opt/codebase/celonis/developer-experience,https://github.com/celonis/developer-experience.git
+/opt/codebase/celonis/actions,https://github.com/celonis/actions.git
+/opt/codebase/celonis/tmp-backstage-playground,https://github.com/celonis/tmp-backstage-playground.git

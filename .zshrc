@@ -158,9 +158,12 @@ source $ZSH/oh-my-zsh.sh
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
+# * ~/.exports can be used to load env vars
 # * ~/.extra can be used for other settings you don’t want to commit.
 for file in ~/.{init,exports,path,alias,completion,extra,zplug}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+  # For debugging
+	# [ -r "$file" ] && [ -f "$file" ] && source "$file" && echo "loading dot file... $file";
 done;
 unset file;
 

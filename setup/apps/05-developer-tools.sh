@@ -42,9 +42,13 @@ hash zsh 2> /dev/null || (
 
   brew tap sambadevi/powerlevel9k
   brew install powerlevel9k
+
+  # Zsh Plugin Manager https://github.com/zplug/zplug
+  brew install zplug
 )
 
 # Fuzzy search
+# https://github.com/junegunn/fzf#installation
 hash fzf 2> /dev/null || ( brew install fzf && "$(brew --prefix)/opt/fzf/install" )
 hash autojump 2> /dev/null || brew install autojump
 
@@ -77,9 +81,13 @@ hash bh 2> /dev/null || (
 hash tunnelblick 2> /dev/null || brew install --cask tunnelblick
 brew info openvpn || ( brew install openvpn && sudo brew services start openvpn )
 
-# Install NodeJS
-hash node 2> /dev/null || brew install node
-hash yarn 2> /dev/null || brew install yarn
+# Install NodeJS through volta
+hash volta 2> /dev/null || (
+    brew install volta
+    volta install node
+)
+# hash node 2> /dev/null || brew install node
+# hash yarn 2> /dev/null || brew install yarn
 
 # Install Python
 hash python 2> /dev/null || brew install python
@@ -89,7 +97,7 @@ hash pyenv 2> /dev/null || (
   brew install pyenv
   pyenv install 3.9.10
   pyenv global 3.9.10
-  )
+)
 
 # hash poetry 2> /dev/null || (
 #     curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python

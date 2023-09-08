@@ -14,9 +14,9 @@ function addToPath() {
 
 # Apple switched the TLS/SSL engine from OpenSSL to their own Secure Transport engine in Apple distributed cURL binary which breaks client certificate usage
 # https://unix.stackexchange.com/questions/192944/how-to-fix-curl-sslv3-alert-handshake-failure
-addToPath "/usr/local/opt/curl/bin" FIRST
+addToPath "$(brew --prefix curl)/bin" FIRST
 
-addToPath "/usr/local/opt/gnu-sed/libexec/gnubin" FIRST
+addToPath "$(brew --prefix gnu-sed)/libexec/gnubin" FIRST
 
 addToPath "$HOME/bin"
 
@@ -30,6 +30,9 @@ test -f /usr/local/bin/go 2> /dev/null && \
 
 addToPath "${KREW_ROOT:-$HOME/.krew}/bin"
 # addToPath "/opt/applications/kui/bin"
+
+test "$VOLTA_HOME" 2> /dev/null && \
+  addToPath "$VOLTA_HOME/bin"
 
 test -f /usr/local/bin/pyenv 2> /dev/null && \
   addToPath "$PYENV_ROOT/bin"

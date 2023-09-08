@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Save Homebrew’s installed location.
-export BREW_PREFIX=$(brew --prefix)
+# For debugging purposes
+# export DEBUG_DOTFILES=0
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && \
   . /usr/local/etc/profile.d/autojump.sh

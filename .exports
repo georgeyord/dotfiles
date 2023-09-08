@@ -1,5 +1,31 @@
 #!/usr/bin/env bash
 
+# SYNCED_PATH -s ex DROPBOX_PATH
+export SYNCED_PATH="/Users/g.papaeythimiou/SynologyYord"
+
+# Load the .env files from repo
+for file in "$HOME/.exports_dir"/*.env; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+  # For debugging
+	# [ -r "$file" ] && [ -f "$file" ] && source "$file" && echo "loading env file... $file";
+done;
+unset file;
+
+# Used for extra env exports
+export EXTRA_ENV_ATH="${SYNCED_PATH}/private/envs"
+
+# Load the .env files from private path
+for file in "${EXTRA_ENV_ATH}"/*.env; do
+  # For debugging
+  # echo "Private env file to load: $file"
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
+##################################
+######## USER PREFERENCES ########
+################################$$
+
 # Make vim the default editor.
 export EDITOR='vim';
 
@@ -33,16 +59,17 @@ export MANPAGER='less -X';
 # https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$(tty);
 
-##################################
-######## USER PREFERENCES ########
-################################$$
-
 # Used in ./.macos
 COMPUTER_NAME="${COMPUTER_NAME:-yord-mac}"
 SYNCED_PATH="${SYNCED_PATH:-/Users/g.papaeythimiou/SynologyYord}"
 
 export WALLPAPER_PATH="${WALLPAPER_PATH:-/Users/g.papaeythimiou/SynologyShared/backgrounds}"
 export WALLPAPER_IMAGE="${WALLPAPER_PATH}/927332-grain-wallpaper-for-meizu.jpg"
+
+export WALLPAPER="${WALLPAPER_PATH}/927393-amazing-grain-wallpaper-2880x1800-ipad-pro.jpg"
+export WALLPAPER_1="${WALLPAPER_PATH}/1151480-gorgerous-fields-wallpaper-1920x1200-for-android-50.jpg"
+export WALLPAPER_2="${WALLPAPER_PATH}/1151409-fields-wallpaper-2560x1600-for-phones.jpg"
+export BH_URL="http://localhost:8080"
 
 # Used in ./setup/directories/ssh.sh
 export SSH_KEYS_PATH="${SYNCED_PATH}/private/ssh/keys/aio/"

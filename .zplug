@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME="$(brew --prefix zplug)"
 # shellcheck disable=SC1091
 source $ZPLUG_HOME/init.zsh
 

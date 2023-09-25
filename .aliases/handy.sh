@@ -144,12 +144,22 @@ function download-and-open() {
   instruct "Finalize the installation manually..."
 }
 
+function _whatsmyip() {
+	local domain="${1}"
+	echo "Domain: ${domain}"
+	nslookup "${domain}" | grep Address | grep -v 192
+}
+
 function whatsmyip() {
 	INTERNAL_IP="$(ifconfig | grep inet | grep -v inet6 | grep -v 127 | awk '{print $2}')"
 	EXTERNAL_IP="$(curl -qsSL ipecho.net/plain)"
 
 	echo -e "Internal: ${INTERNAL_IP}"
 	echo -e "External: ${EXTERNAL_IP}"
+	echo ""
+	_whatsmyip "a100-syn.ddns.net"
+	_whatsmyip "a100-yord.ddns.net"
+	_whatsmyip "a100-goneis.ddns.net"
 }
 
 alias hostname_i='whatsmyip'

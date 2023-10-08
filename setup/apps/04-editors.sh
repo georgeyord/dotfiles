@@ -9,8 +9,7 @@ source ../../.alias
 set -x
 
 hash code 2> /dev/null || (
-	brew install --cask visual-studio-code && \
-	code --install-extension shan.code-settings-sync
+	brew install --cask visual-studio-code
 )
 hash subl 2> /dev/null || brew install --cask sublime-text
 hash atom 2> /dev/null || brew install --cask atom

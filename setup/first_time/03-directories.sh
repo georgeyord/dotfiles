@@ -2,4 +2,4 @@
 set -e
 
 sudo mkdir -p /opt/codebase/georgeyord
-sudo chown -R g.papaeythimiou:staff /opt/codebase
+sudo chown -R ${USER}:staff /opt/codebase

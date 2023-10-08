@@ -8,6 +8,31 @@ source ../../.alias
 
 set -x
 
+which iterm2_set_user_var 2> /dev/null || brew install --cask iterm2
+hash zsh 2> /dev/null || (
+  brew install zsh
+  git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
+  ~/.oh-my-zsh/tools/install.sh
+  sudo chmod -R 755 /usr/local/share/zsh
+  sudo chmod -R 755 /usr/local/share/zsh/site-functions
+  if [ -f "${HISTORY_PATH}" ]; then
+    mv "$HOME/.zsh_history" "$HOME/.zsh_history.bak" && \
+    ln -s "${HISTORY_PATH}" "$HOME/.zsh_history"  && \
+    fc -R || echo "Reload shell history failed..."
+  else
+    instruct "HISTORY_PATH env found but to path it is pointing to, '${HISTORY_PATH}', is not valid..."
+  fi
+
+  brew tap homebrew/cask-fonts
+  brew install --cask font-hack-nerd-font
+
+  brew tap sambadevi/powerlevel9k
+  brew install powerlevel9k
+
+  # Zsh Plugin Manager https://github.com/zplug/zplug
+  brew install zplug
+)
+
 hash git 2> /dev/null || brew install git
 # Github cli: https://github.com/cli/cli
 hash gh 2> /dev/null || brew install gh
@@ -22,30 +47,7 @@ hash wget 2> /dev/null || brew install wget
 hash jq 2> /dev/null || brew install jq
 hash yq 2> /dev/null || brew install yq
 hash caffeinate 2> /dev/null || brew install --cask caffeine
-which iterm2_set_user_var 2> /dev/null || brew install --cask iterm2
 which imgcat 2> /dev/null || curl -fsSL https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
-hash zsh 2> /dev/null || (
-  git clone https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
-  ~/.oh-my-zsh/tools/install.sh
-  sudo chmod -R 755 /usr/local/share/zsh
-  sudo chmod -R 755 /usr/local/share/zsh/site-functions
-  if -f "${HISTORY_PATH}"; then
-    mv "$HOME/.zsh_history" "$HOME/.zsh_history.bak" && \
-    ln -s "${HISTORY_PATH}" "$HOME/.zsh_history"  && \
-    fc -R # Reload shell history
-  else
-    instruct "HISTORY_PATH env found but to path it is pointing to, '${HISTORY_PATH}', is not valid..."
-  fi
-
-  brew tap homebrew/cask-fonts
-  brew install --cask font-hack-nerd-font
-
-  brew tap sambadevi/powerlevel9k
-  brew install powerlevel9k
-
-  # Zsh Plugin Manager https://github.com/zplug/zplug
-  brew install zplug
-)
 
 # Fuzzy search
 # https://github.com/junegunn/fzf#installation
@@ -74,9 +76,9 @@ hash supervisorctl 2> /dev/null || (
 # https://github.com/rcaloras/bashhub-client
 # You may need to run a docker container to connect:
 # https://github.com/nicksherron/bashhub-server
-hash bh 2> /dev/null || (
-  curl -OL https://bashhub.com/setup && zsh setup
-)
+# hash bh 2> /dev/null || (
+#   curl -OL https://bashhub.com/setup && zsh setup
+# )
 
 hash tunnelblick 2> /dev/null || brew install --cask tunnelblick
 brew info openvpn || ( brew install openvpn && sudo brew services start openvpn )

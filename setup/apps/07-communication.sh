@@ -7,7 +7,7 @@ brew install --cask slack
 brew install --cask viber
 brew install --cask whatsapp
 brew install --cask skype
-brew install --cask zoomus
+brew install --cask zoom
 brew install telegram
 brew install rocket-chat
 

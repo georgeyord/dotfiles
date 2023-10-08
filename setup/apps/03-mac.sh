@@ -34,9 +34,9 @@ brew install --cask KeyboardCleanTool
 # https://bahoom.com/hyperswitch
 # is-installed-application "HyperSwitch" 2> /dev/null || brew install --cask hyperswitch
 
-sudo gem install colorls
-sudo gem install lolcat
-sudo gem install artii
+sudo gem install colorls || echo "Failed..."
+sudo gem install lolcat || echo "Failed..."
+sudo gem install artii || echo "Failed..."
 
 # Read more: https://github.com/ng-vu/tomato
 # if [ ! hash tomato 2> /dev/null ]; then
@@ -58,9 +58,7 @@ defaults write com.mowglii.ItsycalApp ShowMonthInIcon -bool true
 defaults write com.mowglii.ItsycalApp UseOutlineIcon -bool true
 defaults write com.mowglii.ItsycalApp WeekStartDOW -bool true
 
-if [ ! is-running "Alfred" ]; then
-
-instruct "Manually setup Alfred
+echo "Manually setup Alfred
 
 Disable Spotlight:
 --> System Preferences
@@ -70,10 +68,10 @@ Disable Spotlight:
 
 Setup Alfred:
 - Open alfred
-- Set Powerpack key to $(cat ${SYNCED_PATH}/apps/mac-apps/alfred.v3.key)
-- Set preferences fodler to '${SYNCED_PATH}/apps/mac-apps/configurations/alfred/Alfred.alfredpreferences'
+- Set Powerpack key to $(cat ${SYNCED_PATH}/apps/configurations/alfred/alfred.v3.key)
+- Set preferences folder to '${SYNCED_PATH}/apps/configurations/alfred/Alfred.alfredpreferences'
 "
-fi
+sleep 10
 
 # For X11Requirement
 # brew install --cask xquartz

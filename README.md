@@ -59,7 +59,7 @@ When setting up a new Mac, you may want to setup some apps. To setup all run:
 ./setup/setup_applications.sh
 ```
 
-or look into `./setup/apps` fodler to setup a specific group only.
+or look into `./setup/apps` folder to setup a specific group only.
 
 Also, looking into the others `./setup/setup_*` commands to setup things like:
 

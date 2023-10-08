@@ -45,7 +45,6 @@ brew install --cask bitwarden
 
 # Install Synology sync tool, like Dropbox; see https://www.synology.com/en-global/support/download/DS920+#utilities
 is-installed-application "Synology Drive Client" 2> /dev/null || (
-  brew tap homebrew/cask-drivers
   brew install synology-drive
 )
 

@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
+export LOCAL_CUSTOM_USER="user"
+export LOCAL_USER=""
+if [ ! -z "${LOCAL_CUSTOM_USER}" ]; then
+  LOCAL_USER="${LOCAL_CUSTOM_USER}"
+elif [ ! -z "${USER}" ]; then
+  LOCAL_USER="${USER}"
+fi
+
 # SYNCED_PATH -s ex DROPBOX_PATH
-export SYNCED_PATH="/Users/g.papaeythimiou/SynologyYord"
+export SYNCED_PATH="/Users/${LOCAL_USER}/SynologyYord"
 
 # Load the .env files from repo
 for file in "$HOME/.exports_dir"/*.env; do
@@ -61,9 +69,9 @@ export GPG_TTY=$(tty);
 
 # Used in ./.macos
 COMPUTER_NAME="${COMPUTER_NAME:-yord-mac}"
-SYNCED_PATH="${SYNCED_PATH:-/Users/g.papaeythimiou/SynologyYord}"
+SYNCED_PATH="${SYNCED_PATH:-/Users/${LOCAL_USER}/SynologyYord}"
 
-export WALLPAPER_PATH="${WALLPAPER_PATH:-/Users/g.papaeythimiou/SynologyShared/backgrounds}"
+export WALLPAPER_PATH="${WALLPAPER_PATH:-/Users/${LOCAL_USER}/SynologyShared/backgrounds}"
 export WALLPAPER_IMAGE="${WALLPAPER_PATH}/927332-grain-wallpaper-for-meizu.jpg"
 
 export WALLPAPER="${WALLPAPER_PATH}/927393-amazing-grain-wallpaper-2880x1800-ipad-pro.jpg"
